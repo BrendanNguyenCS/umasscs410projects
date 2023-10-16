@@ -1,0 +1,12 @@
+{
+    "course ID": "CS 410",
+    "course name": "Introduction to Software Engineering",
+    "name": "Brendan Nguyen",
+    "major": "Computer Science",
+    "PLs": ["GoLang", "Java", "Typescript", "HTML", "CSS", "Javascript", "C/C++", "Python"],
+    "400-level prerequisite": "CS420",
+    "favorite algorithm": "breadth first search",
+    "favorite data structure": "abstract class",
+    "CS interests": ["machine learning", "process of full stack development"],
+    "non-CS interests": ["cars", "sports", "video games", "LEGO", "tech"]
+}
