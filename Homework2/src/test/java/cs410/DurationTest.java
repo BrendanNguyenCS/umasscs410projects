@@ -1,12 +1,12 @@
 package cs410;
 
-import java.util.NoSuchElementException;
-
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DurationTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Duration: static factory methods")
     void of() {
         // given 15331, should return 4:15:31
         assertEquals(Duration.of(15331), Duration.of(4, 15, 31));
@@ -24,7 +24,8 @@ public class DurationTest {
         assertThrows(IllegalArgumentException.class, () -> { Duration.of(4, 15, -31); });
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Duration: add Duration objects")
     void add() {
         // given this = 10:09:08, other: 04:06:23, should return 14:15:31
         assertEquals(Duration.of(14, 15, 31), Duration.of(10, 9, 8).add(Duration.of(4, 6, 23)));
@@ -36,7 +37,8 @@ public class DurationTest {
         assertEquals(Duration.of(51331), Duration.of(36548).add(Duration.of(14783)));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Duration: translate to seconds")
     void seconds() {
         // given this = 10:09:08, should return 36548
         assertEquals(36548, Duration.of(10, 9, 8).seconds());
@@ -44,7 +46,8 @@ public class DurationTest {
         assertEquals(36548, Duration.of(36548).seconds());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Duration: string representation")
     void toStringTest() {
         // given 1:15:00, should return "1:05:00"
         assertEquals("1:15:00", Duration.of(1, 15, 0).toString());

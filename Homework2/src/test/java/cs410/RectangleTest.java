@@ -1,14 +1,18 @@
 package cs410;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RectangleTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Rectangle: static factory method")
     void of() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Rectangle: area")
     void area() {
         // given a Rectangle with coordinates (3,0) and (13,3), should return 39
         assertEquals(39, Rectangle.of(3, 0, 16, 3).area());
@@ -16,7 +20,8 @@ public class RectangleTest {
         assertEquals(0, Rectangle.of(3, 0, 3, 10).area());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Rectangle: contains")
     void contains() {
         // given a Rectangle with coordinates (3,0) and (13,3) and a point (2,12), should return true
         assertTrue(Rectangle.of(3, 0, 13, 3).contains(11, 2));
@@ -24,7 +29,8 @@ public class RectangleTest {
         assertFalse(Rectangle.of(3, 0, 13, 3).contains(7, 5));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Rectangle: overlaps")
     void overlaps() {
         // given Rectangles with coordinates (3,0) and (13,3) and (11,2) and (14,4), should return true
         assertTrue(Rectangle.of(3, 0, 13, 3).overlaps(Rectangle.of(11, 2, 14, 4)));
@@ -32,7 +38,8 @@ public class RectangleTest {
         assertFalse(Rectangle.of(3, 0, 13, 3).overlaps(Rectangle.of(14, 4, 15, 6)));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("Rectangle: equals")
     void equals() {
         // given Rectangles {(3,0), (13,3)} and {(13,3), (3,0)}, should return true
         assertEquals(Rectangle.of(3, 0, 13, 3), Rectangle.of(13, 3, 3, 0));

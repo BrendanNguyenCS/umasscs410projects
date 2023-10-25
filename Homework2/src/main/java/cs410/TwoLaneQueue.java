@@ -27,24 +27,6 @@ public class TwoLaneQueue {
     }
 
     /**
-     * Getter for {@link #fastLane}
-     * <p>
-     * Used for testing only
-     */
-    public LinkedList<String> getFastLane() {
-        return fastLane;
-    }
-
-    /**
-     * Getter for {@link #slowLane}
-     * <p>
-     * Used for testing only
-     */
-    public LinkedList<String> getSlowLane() {
-        return slowLane;
-    }
-
-    /**
      * Adds an item to the fast lane
      * @param s the item to add
      */
@@ -73,21 +55,16 @@ public class TwoLaneQueue {
      * is produced from the slow lane, the field is reset to 0.
      */
     public String dequeue() throws NoSuchElementException {
-        // this must come first as removing from an empty list would result in a NoSuchElementException
-        if (fastLane.isEmpty() && slowLane.isEmpty()) {
-            throw new NoSuchElementException("Both lanes are empty");
-        // this must come next as this dictates the order of producing items from the queues
-        } else if (fastCounter >= 3 && !slowLane.isEmpty()) {
-            fastCounter = 0;
-            return slowLane.remove();
-        // the default behavior is producing an item from the fast lane
-        } else if (!fastLane.isEmpty()) {
+        // dequeue from fast lane if fast counter hasn't reached limit or the slow lane is empty
+        if (fastLane.peek() != null && (fastCounter < 3 || slowLane.peek() == null)) {
             fastCounter++;
             return fastLane.remove();
-        // if all else fails, produce an item from the slow lane
-        } else {
+        // dequeue from slow lane if fast counter has reached the limit and the slow lane is not empty
+        } else if (slowLane.peek() != null) {
             fastCounter = 0;
             return slowLane.remove();
+        } else {
+            throw new NoSuchElementException("Both lanes are empty.");
         }
     }
 }

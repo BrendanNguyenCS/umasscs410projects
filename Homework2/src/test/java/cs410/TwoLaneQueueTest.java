@@ -1,28 +1,31 @@
 package cs410;
 
 import java.util.NoSuchElementException;
-
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TwoLaneQueueTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("TLQ: enqueue fast lane")
     void enqueueFast() {
         TwoLaneQueue q = new TwoLaneQueue();
         // given a new String ("Brendan"), "Brendan" should be in the fast lane
         q.enqueueFast("Brendan");
-        assertTrue(q.getFastLane().contains("Brendan"));
+        assertEquals("Brendan", q.dequeue());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("TLQ: enqueue slow lane")
     void enqueueSlow() {
         TwoLaneQueue q = new TwoLaneQueue();
         // given a new String ("Brendan"), "Brendan" should be in the slow lane
         q.enqueueSlow("Brendan");
-        assertTrue(q.getSlowLane().contains("Brendan"));
+        assertEquals("Brendan", q.dequeue());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("TLQ: dequeue lanes")
     void dequeue() {
         TwoLaneQueue q = new TwoLaneQueue();
         // given a TwoLaneQueue with two empty lanes, should throw an exception
@@ -53,5 +56,7 @@ public class TwoLaneQueueTest {
         assertEquals("Dennis", q.dequeue());
         // should return the first item in the slow lane
         assertEquals("Robbie", q.dequeue());
+        // should throw an exception
+        assertThrows(NoSuchElementException.class, q::dequeue);
     }
 }
