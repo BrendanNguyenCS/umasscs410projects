@@ -6,13 +6,14 @@ package cs410.webfilmz;
  *
  */
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CatalogTest {
 
     @Test
+    @DisplayName("Catalog: getRecommendationsByGenre")
     void getRecommendationsByGenre() {
         String likedGenre = "SciFi";
         Catalog catalog = BaseCatalogTest.getCatalog();

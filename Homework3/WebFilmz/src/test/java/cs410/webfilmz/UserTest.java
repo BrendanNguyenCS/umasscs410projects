@@ -6,26 +6,31 @@ package cs410.webfilmz;
  *
  */
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
 
     @Test
+    @DisplayName("User: recommendations by genre")
     void getRecommendationsByGenre() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();
         Film terminator = catalog.findByTitle("The Terminator");
         alice.addWatched(terminator);
         alice.addLiked(terminator);
+        Film lostChildren = catalog.findByTitle("The City of Lost Children");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
         assertEquals(
-                Set.of(catalog.findByTitle("The City of Lost Children"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian")),
+                Set.of(lostChildren, inception, martian),
                 alice.getRecommendationsByGenre(catalog)
         );
     }
 
     @Test
+    @DisplayName("Debug: all recommendations")
     void getAllRecommendations() {
         Catalog catalog = BaseCatalogTest.getCatalog();
 
@@ -67,6 +72,7 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("User: recommendations by director map")
     void getAllRecommendationsDirector() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();
@@ -78,17 +84,22 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("User: recommendations by genre map")
     void getAllRecommendationsGenre() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();
         Film terminator = catalog.findByTitle("The Terminator");
         alice.addWatched(terminator);
         alice.addLiked(terminator);
-        assertEquals(Set.of(catalog.findByTitle("The City of Lost Children"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian")),
+        Film lostChildren = catalog.findByTitle("The City of Lost Children");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
+        assertEquals(Set.of(lostChildren, inception, martian),
                      alice.getAllRecommendations(catalog, 3).get("Favorite Genres"));
     }
 
     @Test
+    @DisplayName("User: recommendations by most watched map")
     void getAllRecommendationsMostWatched() {
         Catalog catalog = BaseCatalogTest.getCatalog();
 
@@ -117,6 +128,7 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("User: recommendations by most liked map")
     void getAllRecommendationsMostLiked() {
         Catalog catalog = BaseCatalogTest.getCatalog();
 
@@ -146,6 +158,7 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("User: isLikeGenre")
     void isLikedGenre() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();

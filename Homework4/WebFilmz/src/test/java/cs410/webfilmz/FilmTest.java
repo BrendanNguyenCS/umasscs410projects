@@ -6,12 +6,13 @@ package cs410.webfilmz;
  *
  */
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FilmTest {
 
     @Test
+    @DisplayName("Film: isAppropriateFor")
     void testRating() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         Film terminator = catalog.findByTitle("The Terminator"); // R
@@ -23,6 +24,7 @@ public class FilmTest {
     }
 
     @Test
+    @DisplayName("Film: toString")
     void toStringTest() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         Film terminator = catalog.findByTitle("The Terminator");
