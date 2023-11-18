@@ -2,16 +2,22 @@ package cs410;
 
 import java.util.*;
 
+/**
+ * Represents a standard mutable queue consisting of two "lanes": a slow lane and fast lane.
+ * <p>
+ * Although the fast lane gets priority in the dequeue, there is a fairness clause where if the fast lane has been
+ * dequeued three consecutive times, the slow lane will be dequeued from next.
+ */
 public class TwoLaneQueue {
 
     /**
      * Object which represents the fast lane in the queue
      */
-    private final LinkedList<String> fastLane;
+    private final Queue<String> fastLane;
     /**
      * Object which represents the slow lane in the queue
      */
-    private final LinkedList<String> slowLane;
+    private final Queue<String> slowLane;
     /**
      * Counts the number of consecutive times the fast lane has produced an item
      */

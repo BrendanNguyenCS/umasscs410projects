@@ -67,14 +67,14 @@ public class UserTest {
             // Appropriate films
             Film inception = catalog.findByTitle("Inception");
             Film martian = catalog.findByTitle("The Martian");
-            Film memento = catalog.findByTitle("Memento");
             Film oppenheimer = catalog.findByTitle("Oppenheimer");
             Film amelie = catalog.findByTitle("Amelie");
-            Film titanic = catalog.findByTitle("Titanic");
+            Film wick = catalog.findByTitle("John Wick: Chapter 4");
+            Film nobody = catalog.findByTitle("Nobody");
 
-            assertEquals(Set.of(inception, martian, memento, oppenheimer, amelie),
+            assertEquals(Set.of(wick, nobody, inception, martian, oppenheimer),
                          alice.getAllRecommendations(catalog, 5).get("New Releases"));
-            assertEquals(Set.of(inception, martian, memento, oppenheimer, amelie, titanic),
+            assertEquals(Set.of(wick, nobody, inception, martian, oppenheimer, amelie),
                          alice.getAllRecommendations(catalog, 6).get("New Releases"));
         }
 
@@ -183,9 +183,9 @@ public class UserTest {
             Film titanic = catalog.findByTitle("Titanic");
 
             assertEquals(Set.of(inception, martian),
-                         alice.getAllRecommendations(catalog, 5).get("New Releases"));
+                         alice.getAllRecommendations(catalog, 7).get("New Releases"));
             assertEquals(Set.of(inception, martian, titanic),
-                         alice.getAllRecommendations(catalog, 6).get("New Releases"));
+                         alice.getAllRecommendations(catalog, 8).get("New Releases"));
         }
 
         @Test

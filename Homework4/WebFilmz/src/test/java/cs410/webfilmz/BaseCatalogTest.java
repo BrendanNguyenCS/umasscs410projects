@@ -30,6 +30,9 @@ class BaseCatalogTest {
         catalog.add("Inception", "Christopher Nolan", "SciFi", 2010, Rating.PG13);
         catalog.add("The Martian", "Ridley Scott", "SciFi", 2015, Rating.PG13);
         catalog.add("Oppenheimer", "Christopher Nolan", "Bio" ,2023, Rating.R);
+        catalog.add("John Wick: Chapter 4", "Chad Stahelski", "Action", 2023, Rating.R);
+        catalog.add("Nobody", "Ilya Naishuller", "Action", 2021, Rating.R);
+        catalog.add("Enter the Dragon", "Robert Clause", "Action", 1973, Rating.R);
         return catalog;
     }
 
@@ -43,7 +46,7 @@ class BaseCatalogTest {
     @Test
     void getRecommendationsByYear() {
         assertEquals(
-                Set.of(catalog.findByTitle("Oppenheimer"), catalog.findByTitle("The Martian")),
+                Set.of(catalog.findByTitle("Oppenheimer"), catalog.findByTitle("John Wick: Chapter 4")),
                 catalog.getRecommendationsByYear(2));
     }
 
@@ -61,7 +64,7 @@ class BaseCatalogTest {
     }
 
     // Represents preference for a single director, no genres
-    private class JustLikesOneDirector implements ILikeFilm {
+    private static class JustLikesOneDirector implements ILikeFilm {
         private final String likedDirector;
         JustLikesOneDirector(String likedDirector) { this.likedDirector = likedDirector; }
 

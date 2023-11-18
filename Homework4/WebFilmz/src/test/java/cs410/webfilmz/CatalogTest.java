@@ -35,4 +35,21 @@ public class CatalogTest {
                 )
         );
     }
+
+    private static class JustLikesOneGenre implements ILikeFilm {
+        private final String likedGenre;
+        JustLikesOneGenre(String likedGenre) { this.likedGenre = likedGenre; }
+
+        public boolean isLikedDirector(String director) { return false; }
+        public boolean isLikedGenre(String genre) { return this.likedGenre.equals(genre); }
+    }
+
+    @Test
+    @DisplayName("Catalog: getRecommendationsByGenre2")
+    void getRecommendationsByGenre2() {
+        String likedGenre = "SciFi";
+        Catalog catalog = BaseCatalogTest.getCatalog();
+        assertEquals(Set.of(catalog.findByTitle("The Terminator"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian"), catalog.findByTitle("The City of Lost Children")),
+                     catalog.getRecommendationsByGenre(new JustLikesOneGenre(likedGenre)));
+    }
 }

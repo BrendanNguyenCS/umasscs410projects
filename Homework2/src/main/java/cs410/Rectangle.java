@@ -1,5 +1,8 @@
 package cs410;
 
+/**
+ * Represents a rectangle on a 2D grid with integer coordinates
+ */
 public class Rectangle {
 
     /**

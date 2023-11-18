@@ -139,26 +139,4 @@ public class Catalog {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) {
-        Catalog catalog = new Catalog();
-        catalog.add("The Terminator", "James Cameron", "SciFi", 1984, Rating.R);
-        catalog.add("The Princess Bride", "Rob Reiner", "Romance", 1987, Rating.PG);
-        catalog.add("The City of Lost Children", "Jean-Pierre Jeunet", "SciFi", 1995, Rating.R);
-        catalog.add("Toy Story", "John Lasseter", "Comedy", 1995, Rating.G);
-        catalog.add("Titanic", "James Cameron", "Romance", 1997, Rating.PG13);
-        catalog.add("Memento", "Christopher Nolan", "Thriller", 2000, Rating.R);
-        catalog.add("Amelie", "Jean-Pierre Jeunet", "Romance", 2001, Rating.R);
-        catalog.add("Inception", "Christopher Nolan", "SciFi", 2010, Rating.PG13);
-        catalog.add("The Martian", "Ridley Scott", "SciFi", 2015, Rating.PG13);
-        catalog.add("Oppenheimer", "Christopher Nolan", "Bio" ,2023, Rating.R);
-        catalog.add("Avatar", "James Cameron", "SciFi", 2009, Rating.PG13);
-        catalog.add("Aliens", "James Cameron", "SciFi", 1986, Rating.R);
-        catalog.add("Tenet", "Christopher Nolan", "SciFi", 2020, Rating.PG13);
-        catalog.add("The Dark Knight Rises", "Christopher Nolan", "SciFi", 2012, Rating.PG13);
-        catalog.add("Fast Five", "Justin Lin", "Action", 2011, Rating.PG13);
-        catalog.add("Cars", "John Lasseter", "Comedy", 2006, Rating.G);
-
-        System.out.println(catalog);
-    }
 }
