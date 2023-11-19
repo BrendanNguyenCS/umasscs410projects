@@ -105,18 +105,28 @@ public class GameState {
         return false;
     }
 
+    /**
+     * Shifts the players in the forward direction
+     * @param p the current player
+     */
     private void initiateForwardDirection(Player p) {
         // 1 > 2 > 3 > 4 -> 2 > 3 > 4 > 1
         players.removeFirst();
         players.addLast(p);
     }
 
+    /**
+     * Shifts the players in the reverse direction
+     */
     private void initiateReverseDirection() {
         // 1 > 2 > 3 > 4 -> 4 > 1 > 2 > 3
         Player l = players.removeLast();
         players.addFirst(l);
     }
 
+    /**
+     * Draws two cards from the draw pile and adds them to the next player's hand
+     */
     private void drawTwoToNextPlayer() {
         Player n = players.peekFirst();
         if (n != null) {
@@ -136,6 +146,9 @@ public class GameState {
         if (!isGameOver()) {
             // get current player
             Player p = players.peekFirst();
+            if (p == null) {
+                throw new NoSuchElementException("No players found");
+            }
 
             // get previously played card from discard pile
             Card lastPlayed = discard.getTopCard();
@@ -147,17 +160,11 @@ public class GameState {
                 initiateReverseDirection();
             }
 
-            Card next = null;
+            Card next = p.playCard(lastPlayed);
             // check if the player has any playable cards
-            while (p != null) {
-                Card c = p.playCard(lastPlayed);
-                if (c != null) {
-                    next = c;
-                    break;
-                } else {
-                    // if no moves possible, draw a card and add it to player's hand
-                    p.addToHand(draw.drawFromDeck());
-                }
+            while (next == null) {
+                p.addToHand(draw.drawFromDeck());
+                next = p.playCard(lastPlayed);
             }
 
             // check type of the next card
@@ -188,7 +195,7 @@ public class GameState {
                     w.setRandomEffectiveColor();
                     discard.addToDeck(w);
                     return;
-                case null, default:
+                default:
                     break;
             }
 
@@ -203,6 +210,13 @@ public class GameState {
                 discard.clearDeck();
                 discard.addToDeck(c);
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        GameState g = GameState.startGame(2, 7, 2, 2, 2);
+        while (!g.isGameOver()) {
+            g.runOneTurn();
         }
     }
 }

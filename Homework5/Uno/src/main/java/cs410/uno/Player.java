@@ -39,14 +39,18 @@ public class Player {
                 playableCards.add(card);
             }
         }
-        Random rand = new Random();
-        int i = rand.nextInt(playableCards.size());
-        Card c = playableCards.get(i);
-        if (hand.remove(c)) {
-            return c;
+
+        if (!playableCards.isEmpty()) {
+            Random rand = new Random();
+            int i = rand.nextInt(playableCards.size());
+            Card c = playableCards.get(i);
+            if (hand.remove(c)) {
+                return c;
+            }
         } else {
             return null;
         }
+        return null;
     }
 
     /**

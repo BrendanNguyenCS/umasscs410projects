@@ -25,6 +25,22 @@ class WildCardTest {
             WildCard w = new WildCard();
             assertDoesNotThrow(() -> { w.setEffectiveColor("Blue"); });
         }
+
+        @Test
+        @DisplayName("set valid color for card with existing color")
+        void validColorWithExistingColor() {
+            WildCard w = new WildCard();
+            w.setEffectiveColor("Blue");
+            assertDoesNotThrow(() -> { w.setEffectiveColor("Red"); });
+        }
+
+        @Test
+        @DisplayName("set invalid color for card with existing color")
+        void invalidColorWithExistingColor() {
+            WildCard w = new WildCard();
+            w.setEffectiveColor("Blue");
+            assertThrows(IllegalArgumentException.class, () -> { w.setEffectiveColor("Purple"); });
+        }
     }
 
     @Nested
@@ -39,15 +55,10 @@ class WildCardTest {
 
             // We want to reset the color enough times that every color is chosen
             // Ensures that the none option is not chosen
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
-            assertNotEquals("None", w.getColor());
+            for (int i = 0; i < 10; i++) {
+                assertNotEquals("None", w.getColor());
+                w.setRandomEffectiveColor();
+            }
         }
 
         @Test
