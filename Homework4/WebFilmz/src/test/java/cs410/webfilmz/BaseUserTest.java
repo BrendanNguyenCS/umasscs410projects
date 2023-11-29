@@ -20,18 +20,18 @@ class BaseUserTest {
         User alice = new User();
         Film amelie = catalog.findByTitle("Amelie");
         Film terminator = catalog.findByTitle("The Terminator");
-        assertEquals(0, amelie.totalWatched());
-        assertEquals(0, amelie.totalLiked());
-        assertEquals(0, terminator.totalWatched());
-        assertEquals(0, terminator.totalLiked());
+        assertEquals(0, amelie.getTotalWatched());
+        assertEquals(0, amelie.getTotalLiked());
+        assertEquals(0, terminator.getTotalWatched());
+        assertEquals(0, terminator.getTotalLiked());
         alice.addWatched(amelie);
-        assertEquals(1, amelie.totalWatched());
-        assertEquals(0, amelie.totalLiked());
+        assertEquals(1, amelie.getTotalWatched());
+        assertEquals(0, amelie.getTotalLiked());
         alice.addLiked(amelie);
-        assertEquals(1, amelie.totalWatched());
-        assertEquals(1, amelie.totalLiked());
-        assertEquals(0, terminator.totalWatched());
-        assertEquals(0, terminator.totalLiked());
+        assertEquals(1, amelie.getTotalWatched());
+        assertEquals(1, amelie.getTotalLiked());
+        assertEquals(0, terminator.getTotalWatched());
+        assertEquals(0, terminator.getTotalLiked());
     }
 
     @Test
@@ -39,10 +39,10 @@ class BaseUserTest {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();
         Film amelie = catalog.findByTitle("Amelie");
-        assertEquals(0, amelie.totalWatched());
+        assertEquals(0, amelie.getTotalWatched());
         alice.addWatched(amelie);
         alice.addWatched(amelie);
-        assertEquals(1, amelie.totalWatched());
+        assertEquals(1, amelie.getTotalWatched());
     }
 
     @Test

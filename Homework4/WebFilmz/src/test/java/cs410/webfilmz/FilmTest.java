@@ -31,4 +31,20 @@ public class FilmTest {
         String expected = "The Terminator (1984, SciFi, R) directed by James Cameron";
         assertEquals(expected, terminator.toString());
     }
+
+    @Test
+    @DisplayName("Film: getDisplay")
+    void getDisplay() {
+        Catalog catalog = BaseCatalogTest.getCatalog();
+        Film terminator = catalog.findByTitle("The Terminator");
+        assertEquals("R", terminator.getRating().getDisplay());
+    }
+
+    @Test
+    @DisplayName("Film: getLevel")
+    void getLevel() {
+        Catalog catalog = BaseCatalogTest.getCatalog();
+        Film terminator = catalog.findByTitle("The Terminator");
+        assertEquals(4, terminator.getRating().getLevel());
+    }
 }

@@ -1,11 +1,14 @@
 package cs410.webfilmz;
 
+import lombok.Getter;
+
 /**
  * Represents a film, including both its immutable
  * intrinsic information and its mutable viewing history.
  * <p>
  * Used by {@link User} and {@link Catalog}, updated by {@link User}; created by {@link Catalog}.
  */
+@Getter
 public class Film {
     private final String title;
     private final String director;
@@ -26,24 +29,13 @@ public class Film {
     }
 
     /**
-     * Get field values
-     */
-    public String title() { return title; }
-    public String director() { return director; }
-    public String genre() { return genre; }
-    public int releaseYear() { return releaseYear; }
-    public int totalWatched() { return totalWatched; }
-    public int totalLiked() { return totalLiked; }
-    public Rating rating() { return rating; }
-
-    /**
      * Update watched/liked counters, respectively
      */
     public void incrementWatched(int toAdd) {
-        totalWatched = totalWatched + toAdd;
+        totalWatched += toAdd;
     }
     public void incrementLiked(int toAdd) {
-        totalLiked = totalLiked + toAdd;
+        totalLiked += toAdd;
     }
 
     /**

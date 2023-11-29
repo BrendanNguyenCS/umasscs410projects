@@ -60,8 +60,8 @@ public class User implements ILikeFilm {
     public void addLiked(Film film) {
         if (liked.add(film)) {
             film.incrementLiked(1);
-            likedDirectors.add(film.director());
-            likedGenres.add(film.genre());
+            likedDirectors.add(film.getDirector());
+            likedGenres.add(film.getGenre());
         }
     }
 
@@ -126,25 +126,21 @@ public class User implements ILikeFilm {
     }
 
     /**
-     * Do any of the films the user has liked have the given director?
-     * @param director the desired director's name
-     * @return {@code true} if this user likes the desired director, {@code false} otherwise.
+     * Do any of the films the user has liked have the given director/genre?
      */
     public boolean isLikedDirector(String director) {
         for (String d : likedDirectors) {
-            if (d.equals(director)) return true;
+            if (d.equals(director)) {
+                return true;
+            }
         }
         return false;
     }
-
-    /**
-     * Do any of the films the user has liked have the given genre?
-     * @param genre the desired film genre
-     * @return {@code true} if this user likes the desired film genre, {@code false} otherwise.
-     */
     public boolean isLikedGenre(String genre) {
         for (String g : likedGenres) {
-            if (g.equals(genre)) return true;
+            if (g.equals(genre)) {
+                return true;
+            }
         }
         return false;
     }

@@ -38,7 +38,7 @@ class BaseCatalogTest {
 
     @Test
     void findFilmByTitle() {
-        assertEquals("Memento", catalog.findByTitle("Memento").title());
+        assertEquals("Memento", catalog.findByTitle("Memento").getTitle());
         assertThrows(RuntimeException.class,
                 () -> catalog.findByTitle("The Great Mouse Detective"));
     }

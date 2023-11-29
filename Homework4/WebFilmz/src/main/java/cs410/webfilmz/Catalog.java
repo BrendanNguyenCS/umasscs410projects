@@ -70,7 +70,7 @@ public class Catalog {
      */
     public Film findByTitle(String title) throws RuntimeException {
         for (Film film : allFilms) {
-            if (film.title().equals(title)) {
+            if (film.getTitle().equals(title)) {
                 return film;
             }
         }
@@ -81,15 +81,15 @@ public class Catalog {
      * Get up to count recommendations, the most recent/watched/liked films in the catalog
      */
     public Set<Film> getRecommendationsByYear(int count) {
-        Comparator<Film> comparator = Comparator.comparingInt(Film::releaseYear).reversed();
+        Comparator<Film> comparator = Comparator.comparingInt(Film::getReleaseYear).reversed();
         return getRecommendationBySorting(count, comparator);
     }
     public Set<Film> getRecommendationsMostWatched(int count) {
-        Comparator<Film> comparator = Comparator.comparingInt(Film::totalWatched).reversed();
+        Comparator<Film> comparator = Comparator.comparingInt(Film::getTotalWatched).reversed();
         return getRecommendationBySorting(count, comparator);
     }
     public Set<Film> getRecommendationsMostLiked(int count) {
-        Comparator<Film> comparator = Comparator.comparingInt(Film::totalLiked).reversed();
+        Comparator<Film> comparator = Comparator.comparingInt(Film::getTotalLiked).reversed();
         return getRecommendationBySorting(count, comparator);
     }
 
@@ -107,7 +107,7 @@ public class Catalog {
     }
 
     /**
-     * Get all films by liked director/genre
+     * Get film recommendations by liked director/genre
      */
     public Set<Film> getRecommendationsByDirector(ILikeFilm user) {
         Set<Film> recommendations = new HashSet<>();

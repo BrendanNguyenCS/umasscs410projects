@@ -40,8 +40,12 @@ public class CatalogTest {
         private final String likedGenre;
         JustLikesOneGenre(String likedGenre) { this.likedGenre = likedGenre; }
 
-        public boolean isLikedDirector(String director) { return false; }
-        public boolean isLikedGenre(String genre) { return this.likedGenre.equals(genre); }
+        public boolean isLikedDirector(String director) {
+            return false;
+        }
+        public boolean isLikedGenre(String genre) {
+            return this.likedGenre.equals(genre);
+        }
     }
 
     @Test

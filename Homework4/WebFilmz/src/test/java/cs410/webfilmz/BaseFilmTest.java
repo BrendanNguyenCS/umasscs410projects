@@ -18,16 +18,16 @@ class BaseFilmTest {
     void testTotals() {
         Catalog catalog = BaseCatalogTest.getCatalog();
         Film terminator = catalog.findByTitle("The Terminator");
-        assertEquals(0, terminator.totalWatched());
-        assertEquals(0, terminator.totalLiked());
+        assertEquals(0, terminator.getTotalWatched());
+        assertEquals(0, terminator.getTotalLiked());
         terminator.incrementWatched(2);
         terminator.incrementLiked(1);
-        assertEquals(2, terminator.totalWatched());
-        assertEquals(1, terminator.totalLiked());
+        assertEquals(2, terminator.getTotalWatched());
+        assertEquals(1, terminator.getTotalLiked());
         terminator.incrementWatched(12);
         terminator.incrementLiked(10);
-        assertEquals(14, terminator.totalWatched());
-        assertEquals(11, terminator.totalLiked());
+        assertEquals(14, terminator.getTotalWatched());
+        assertEquals(11, terminator.getTotalLiked());
     }
 
     @Test
@@ -36,9 +36,9 @@ class BaseFilmTest {
         Film terminator = catalog.findByTitle("The Terminator"); // R
         Film toystory = catalog.findByTitle("Toy Story"); // G
         // bleh...
-        assertTrue(terminator.rating().isAppropriateFor(Rating.R));
-        assertFalse(terminator.rating().isAppropriateFor(Rating.PG13));
-        assertTrue(toystory.rating().isAppropriateFor(Rating.R));
-        assertTrue(toystory.rating().isAppropriateFor(Rating.G));
+        assertTrue(terminator.getRating().isAppropriateFor(Rating.R));
+        assertFalse(terminator.getRating().isAppropriateFor(Rating.PG13));
+        assertTrue(toystory.getRating().isAppropriateFor(Rating.R));
+        assertTrue(toystory.getRating().isAppropriateFor(Rating.G));
     }
 }
