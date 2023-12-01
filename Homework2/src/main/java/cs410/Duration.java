@@ -5,22 +5,31 @@ package cs410;
  */
 public class Duration {
 
+    /**
+     * The number of hours in this {@link Duration}
+     */
     private final int hours;
-    private final int minutes; // should be stored in range [0..60)
-    private final int seconds; // should be stored in range [0..60)
+    /**
+     * The number of minutes in this {@link Duration}.
+     * <p>
+     * Field invariant: Should be in range [0..60)
+     */
+    private final int minutes;
+    /**
+     * The number of seconds in this {@link Duration}.
+     * <p>
+     * Field invariant: Should be in range [0..60)
+     */
+    private final int seconds;
 
     /**
      * Constructs a new {@link Duration} object
      * <p>
-     * All values will be adjusted so that the following is true:
-     * <ul>
-     *     <li>The seconds is less than 60</li>
-     *     <li>The hours is less than 60</li>
-     * </ul>
+     * All values will be adjusted so that the field invariants will hold true.
      * <p>
      * For example, a duration of {@code 6:75:75} would be adjusted to {@code 7:16:15}
      */
-    public Duration(int hours, int minutes, int seconds) {
+    private Duration(int hours, int minutes, int seconds) {
         // calculate adjustments
         int additionalMinutes = seconds / 60;
         int additionalHours = (minutes + additionalMinutes) / 60;
@@ -85,9 +94,8 @@ public class Duration {
             return (this.hours == otherDuration.hours &&
                     this.minutes == otherDuration.minutes &&
                     this.seconds == otherDuration.seconds);
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**

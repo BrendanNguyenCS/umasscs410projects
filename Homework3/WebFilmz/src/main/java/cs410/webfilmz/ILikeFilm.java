@@ -1,6 +1,7 @@
 package cs410.webfilmz;
 
-/* Express preferences about films (directors and genres, specifically)
+/**
+ * Express preferences about films (directors and genres, specifically)
  */
 public interface ILikeFilm {
     // Do we like the given director or genre?

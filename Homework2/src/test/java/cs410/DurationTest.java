@@ -15,26 +15,30 @@ public class DurationTest {
         // given 4:62:67, should return 5:03:07
         assertEquals(Duration.of(4, 62, 67), Duration.of(5, 3, 7));
         // given -15331, should throw an exception
-        assertThrows(IllegalArgumentException.class, () -> { Duration.of(-15331); });
+        assertThrows(IllegalArgumentException.class, () -> Duration.of(-15331));
         // given -4:15:31, should throw an exception
-        assertThrows(IllegalArgumentException.class, () -> { Duration.of(-4, 15, 31); });
+        assertThrows(IllegalArgumentException.class, () -> Duration.of(-4, 15, 31));
         // given 4:-15:31, should throw an exception
-        assertThrows(IllegalArgumentException.class, () -> { Duration.of(4, -15, 31); });
+        assertThrows(IllegalArgumentException.class, () -> Duration.of(4, -15, 31));
         // given 4:15:-31, should throw an exception
-        assertThrows(IllegalArgumentException.class, () -> { Duration.of(4, 15, -31); });
+        assertThrows(IllegalArgumentException.class, () -> Duration.of(4, 15, -31));
     }
 
     @Test
     @DisplayName("Duration: add Duration objects")
     void add() {
         // given this = 10:09:08, other: 04:06:23, should return 14:15:31
-        assertEquals(Duration.of(14, 15, 31), Duration.of(10, 9, 8).add(Duration.of(4, 6, 23)));
+        assertEquals(Duration.of(14, 15, 31),
+                     Duration.of(10, 9, 8).add(Duration.of(4, 6, 23)));
         // given this = 36548, other = 24:53:53, should return 25:03:01
-        assertEquals(Duration.of(35, 3, 1), Duration.of(36548).add(Duration.of(24, 53, 53)));
+        assertEquals(Duration.of(35, 3, 1),
+                     Duration.of(36548).add(Duration.of(24, 53, 53)));
         // given this = 10:09:08, other = 14783, should return 14:15:31
-        assertEquals(Duration.of(14, 15, 31), Duration.of(10, 9, 8).add(Duration.of(14783)));
+        assertEquals(Duration.of(14, 15, 31),
+                     Duration.of(10, 9, 8).add(Duration.of(14783)));
         // given 36548, other = 14783, should return 51331
-        assertEquals(Duration.of(51331), Duration.of(36548).add(Duration.of(14783)));
+        assertEquals(Duration.of(51331),
+                     Duration.of(36548).add(Duration.of(14783)));
     }
 
     @Test

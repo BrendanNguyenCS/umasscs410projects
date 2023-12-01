@@ -13,15 +13,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CatalogTest {
 
     /**
-     * One way to test {@link Catalog#getRecommendationsByGenre} is creating an anonymous class
+     * One way to test {@link Catalog#getRecommendationsByGenre getRecommendationsByGenre} is creating an anonymous class
      */
     @Test
     @DisplayName("Catalog: anonymous class")
     void getRecommendationsByGenre() {
         String likedGenre = "SciFi";
         Catalog catalog = BaseCatalogTest.getCatalog();
+        Film terminator = catalog.findByTitle("The Terminator");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
+        Film cityOfLostChildren = catalog.findByTitle("The City of Lost Children");
         assertEquals(
-                Set.of(catalog.findByTitle("The Terminator"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian"), catalog.findByTitle("The City of Lost Children")),
+                Set.of(terminator, inception, martian, cityOfLostChildren),
                 catalog.getRecommendationsByGenre(
                         // This is called an "anonymous class expression"
                         new ILikeFilm() {
@@ -54,7 +58,6 @@ public class CatalogTest {
         public boolean isLikedGenre(String genre) {
             return this.likedGenre.equals(genre);
         }
-
     }
 
     @Test
@@ -62,8 +65,12 @@ public class CatalogTest {
     void getRecommendationsByGenre2() {
         String likedGenre = "SciFi";
         Catalog catalog = BaseCatalogTest.getCatalog();
+        Film terminator = catalog.findByTitle("The Terminator");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
+        Film cityOfLostChildren = catalog.findByTitle("The City of Lost Children");
         assertEquals(
-                Set.of(catalog.findByTitle("The Terminator"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian"), catalog.findByTitle("The City of Lost Children")),
+                Set.of(terminator, inception, martian, cityOfLostChildren),
                 catalog.getRecommendationsByGenre(new JustLikesOneGenre(likedGenre))
         );
     }
