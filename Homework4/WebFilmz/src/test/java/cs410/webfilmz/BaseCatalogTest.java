@@ -64,7 +64,7 @@ class BaseCatalogTest {
     }
 
     // Represents preference for a single director, no genres
-    private static class JustLikesOneDirector implements ILikeFilm {
+    private class JustLikesOneDirector implements ILikeFilm {
         private final String likedDirector;
         JustLikesOneDirector(String likedDirector) { this.likedDirector = likedDirector; }
 

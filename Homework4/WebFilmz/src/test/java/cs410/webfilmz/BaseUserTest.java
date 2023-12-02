@@ -50,7 +50,10 @@ class BaseUserTest {
         Catalog catalog = BaseCatalogTest.getCatalog();
         User alice = new User();
         alice.addWatched(catalog.findByTitle("The Martian"));
-        assertEquals(Set.of(catalog.findByTitle("Oppenheimer"), catalog.findByTitle("John Wick: Chapter 4"), catalog.findByTitle("Nobody")),
+        Film oppenheimer = catalog.findByTitle("Oppenheimer");
+        Film johnwick4 = catalog.findByTitle("John Wick: Chapter 4");
+        Film nobody = catalog.findByTitle("Nobody");
+        assertEquals(Set.of(oppenheimer, johnwick4, nobody),
                 alice.getAllRecommendations(catalog, 3).get("New Releases"));
     }
 

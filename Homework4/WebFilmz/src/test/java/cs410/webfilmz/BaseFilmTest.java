@@ -35,7 +35,6 @@ class BaseFilmTest {
         Catalog catalog = BaseCatalogTest.getCatalog();
         Film terminator = catalog.findByTitle("The Terminator"); // R
         Film toystory = catalog.findByTitle("Toy Story"); // G
-        // bleh...
         assertTrue(terminator.getRating().isAppropriateFor(Rating.R));
         assertFalse(terminator.getRating().isAppropriateFor(Rating.PG13));
         assertTrue(toystory.getRating().isAppropriateFor(Rating.R));

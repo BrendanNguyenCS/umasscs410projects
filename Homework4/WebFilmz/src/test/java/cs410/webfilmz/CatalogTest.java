@@ -17,8 +17,12 @@ public class CatalogTest {
     void getRecommendationsByGenre() {
         String likedGenre = "SciFi";
         Catalog catalog = BaseCatalogTest.getCatalog();
+        Film terminator = catalog.findByTitle("The Terminator");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
+        Film cityOfLostChildren = catalog.findByTitle("The City of Lost Children");
         assertEquals(
-                Set.of(catalog.findByTitle("The Terminator"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian"), catalog.findByTitle("The City of Lost Children")),
+                Set.of(terminator, inception, martian, cityOfLostChildren),
                 catalog.getRecommendationsByGenre(
                         // This is called an "anonymous class expression"
                         new ILikeFilm() {
@@ -36,7 +40,7 @@ public class CatalogTest {
         );
     }
 
-    private static class JustLikesOneGenre implements ILikeFilm {
+    private class JustLikesOneGenre implements ILikeFilm {
         private final String likedGenre;
         JustLikesOneGenre(String likedGenre) { this.likedGenre = likedGenre; }
 
@@ -53,7 +57,11 @@ public class CatalogTest {
     void getRecommendationsByGenre2() {
         String likedGenre = "SciFi";
         Catalog catalog = BaseCatalogTest.getCatalog();
-        assertEquals(Set.of(catalog.findByTitle("The Terminator"), catalog.findByTitle("Inception"), catalog.findByTitle("The Martian"), catalog.findByTitle("The City of Lost Children")),
+        Film terminator = catalog.findByTitle("The Terminator");
+        Film inception = catalog.findByTitle("Inception");
+        Film martian = catalog.findByTitle("The Martian");
+        Film cityOfLostChildren = catalog.findByTitle("The City of Lost Children");
+        assertEquals(Set.of(terminator, inception, martian, cityOfLostChildren),
                      catalog.getRecommendationsByGenre(new JustLikesOneGenre(likedGenre)));
     }
 }
