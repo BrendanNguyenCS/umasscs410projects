@@ -1,5 +1,6 @@
 package cs410.uno;
 
+import lombok.Getter;
 import java.util.*;
 
 /**
@@ -7,12 +8,13 @@ import java.util.*;
  * <p>
  * Class invariants
  * <ul>
- *     <li>The game must have at least 2 players to start</li>
- *     <li>Players must have 1 or more normal card per digit and color.</li>
- *     <li>Players can have 0 or more special cards per color.</li>
- *     <li>Players can have 0 or more wild cards.</li>
+ *     <li>The game must have at least 2 {@link Player players} to start</li>
+ *     <li>Players must have 1 or more {@link NormalCard normal} card per digit and color.</li>
+ *     <li>Players can have 0 or more {@link SpecialCard special} cards per color.</li>
+ *     <li>Players can have 0 or more {@link WildCard wild} cards.</li>
  * </ul>
  */
+@Getter
 public class GameState {
 
     /**
@@ -55,7 +57,7 @@ public class GameState {
         players = new LinkedList<>();
         // add new players
         for (int i = 0; i < countPlayers; i++) {
-            players.add(new Player());
+            players.add(new Player("Player " + (i + 1)));
         }
 
         // add hands to players
@@ -107,18 +109,17 @@ public class GameState {
 
     /**
      * Shifts the players in the forward direction
-     * @param p the current player
      */
-    private void initiateForwardDirection(Player p) {
+    void initiateForwardDirection() {
         // 1 > 2 > 3 > 4 -> 2 > 3 > 4 > 1
-        players.removeFirst();
+        Player p = players.removeFirst();
         players.addLast(p);
     }
 
     /**
      * Shifts the players in the reverse direction
      */
-    private void initiateReverseDirection() {
+    void initiateReverseDirection() {
         // 1 > 2 > 3 > 4 -> 4 > 1 > 2 > 3
         Player l = players.removeLast();
         players.addFirst(l);
@@ -127,12 +128,29 @@ public class GameState {
     /**
      * Draws two cards from the draw pile and adds them to the next player's hand
      */
-    private void drawTwoToNextPlayer() {
+    void drawTwoToNextPlayer() {
         Player n = players.peekFirst();
         if (n != null) {
             for (int i = 0; i < 2; i++) {
                 n.addToHand(draw.drawFromDeck());
             }
+        }
+    }
+
+    /**
+     * Checks if the draw pile is empty, and if so, adds the discard pile to it
+     */
+    void checkDecks() {
+        // if draw pile is empty, add discard pile to
+        if (draw.isDeckEmpty()) {
+            // save the current top card from discard pile
+            Card c = discard.drawFromDeck();
+            // add discard pile to draw pile and shuffle
+            draw.addToDeck(discard);
+            draw.shuffleDeck();
+            // clear the discard pile and add the saved card
+            discard.clearDeck();
+            discard.addToDeck(c);
         }
     }
 
@@ -155,10 +173,12 @@ public class GameState {
 
             // check for direction and shift
             if (direction) {
-                initiateForwardDirection(p);
+                initiateForwardDirection();
             } else {
                 initiateReverseDirection();
             }
+
+            checkDecks();
 
             Card next = p.playCard(lastPlayed);
             // check if the player has any playable cards
@@ -175,6 +195,7 @@ public class GameState {
                 case SpecialCard s:
                     switch (s.getValue()) {
                         case "Draw Two":
+                            checkDecks();
                             drawTwoToNextPlayer();
                             break;
                         case "Reverse":
@@ -183,7 +204,7 @@ public class GameState {
                         case "Skip":
                             // check for direction and shift
                             if (direction) {
-                                initiateForwardDirection(p);
+                                initiateForwardDirection();
                             } else {
                                 initiateReverseDirection();
                             }
@@ -198,25 +219,6 @@ public class GameState {
                 default:
                     break;
             }
-
-            // if draw pile is empty, add discard pile to
-            if (draw.isDeckEmpty()) {
-                // save the current top card from discard pile
-                Card c = discard.removeTopCard();
-                // add discard pile to draw pile and shuffle
-                draw.addToDeck(discard);
-                draw.shuffleDeck();
-                // clear the discard pile and add the saved card
-                discard.clearDeck();
-                discard.addToDeck(c);
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        GameState g = GameState.startGame(2, 7, 2, 2, 2);
-        while (!g.isGameOver()) {
-            g.runOneTurn();
         }
     }
 }

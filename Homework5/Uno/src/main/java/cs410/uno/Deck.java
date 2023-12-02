@@ -1,5 +1,6 @@
 package cs410.uno;
 
+import lombok.Getter;
 import java.util.*;
 
 /**
@@ -7,11 +8,12 @@ import java.util.*;
  * <p>
  * Class invariants
  * <ul>
- *     <li>The deck must have 1 or more normal card per digit and color.</li>
- *     <li>The deck must have 0 or more special cards per color.</li>
- *     <li>The deck must have 0 or more wild cards.</li>
+ *     <li>The deck must have 1 or more {@link NormalCard normal} card per digit and color.</li>
+ *     <li>The deck must have 0 or more {@link SpecialCard special} cards per color.</li>
+ *     <li>The deck must have 0 or more {@link WildCard wild} cards.</li>
  * </ul>
  */
+@Getter
 public class Deck {
 
     /**
@@ -37,13 +39,6 @@ public class Deck {
      */
     public Deck() {
         deck = new LinkedList<>();
-    }
-
-    /**
-     * Getter for {@link #deck}
-     */
-    public LinkedList<Card> getDeck() {
-        return deck;
     }
 
     /**
@@ -145,7 +140,7 @@ public class Deck {
     }
 
     /**
-     * Removes the top card of the deck
+     * Checks if decks are equal
      */
     public Card removeTopCard() {
         return deck.removeFirst();

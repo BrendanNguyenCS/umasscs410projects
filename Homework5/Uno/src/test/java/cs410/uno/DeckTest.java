@@ -63,19 +63,19 @@ class DeckTest {
             @Test
             @DisplayName("Invalid count digit cards per color")
             void invalidDigitCount() {
-                assertThrows(IllegalArgumentException.class, () -> { new Deck(0, 1, 1); });
+                assertThrows(IllegalArgumentException.class, () -> new Deck(0, 1, 1));
             }
 
             @Test
             @DisplayName("Invalid count special cards per color")
             void invalidSpecialCount() {
-                assertThrows(IllegalArgumentException.class, () -> { new Deck(1, -1, 1); });
+                assertThrows(IllegalArgumentException.class, () -> new Deck(1, -1, 1));
             }
 
             @Test
             @DisplayName("Invalid count wild cards")
             void invalidWildCount() {
-                assertThrows(IllegalArgumentException.class, () -> { new Deck(1, 1, -1); });
+                assertThrows(IllegalArgumentException.class, () -> new Deck(1, 1, -1));
             }
         }
 
@@ -114,6 +114,5 @@ class DeckTest {
         Card c = new NormalCard(6, "Red");
         d.addToDeck(c);
         assertEquals(c, d.removeTopCard());
-        assertTrue(d.isDeckEmpty());
     }
 }

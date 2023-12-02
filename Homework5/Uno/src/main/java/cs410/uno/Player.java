@@ -1,10 +1,12 @@
 package cs410.uno;
 
+import lombok.Getter;
 import java.util.*;
 
 /**
  * Represents a player in the Uno game.
  */
+@Getter
 public class Player {
 
     /**
@@ -13,10 +15,16 @@ public class Player {
     private final List<Card> hand;
 
     /**
+     * The player's name
+     */
+    private final String name;
+
+    /**
      * Constructor
      */
-    public Player() {
+    public Player(String name) {
         hand = new ArrayList<>();
+        this.name = name;
     }
 
     /**
@@ -47,9 +55,8 @@ public class Player {
             if (hand.remove(c)) {
                 return c;
             }
-        } else {
-            return null;
         }
+
         return null;
     }
 

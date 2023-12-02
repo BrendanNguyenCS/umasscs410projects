@@ -3,7 +3,11 @@ package cs410.uno;
 import java.util.Random;
 
 /**
- * Represents a wild card in Uno
+ * Represents a wild card in the Uno game
+ * <p>
+ * Class invariant: Wild cards can't have a type or value other than <i>Wild</i>. Wild cards are the only cards in the Uno game that can change their effective color.
+ * <p>
+ * When the game starts, a wild card will have no effective color. Whenever a wild card is placed, a new effective color will be set.
  */
 public class WildCard extends Card {
     /**
