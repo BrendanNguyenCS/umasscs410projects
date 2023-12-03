@@ -1,6 +1,9 @@
 package cs410.uno;
 
 import org.junit.jupiter.api.*;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameStateTest {
@@ -187,7 +190,75 @@ public class GameStateTest {
         assertEquals(1, gs.getDiscard().getDeck().size());
     }
 
+    @Nested
+    @DisplayName("GameState: get current player")
+    class getCurrentPlayer {
+
+        @Test
+        @DisplayName("Empty player list")
+        void getCurrentPlayerEmpty() {
+            GameState gs = GameState.startGame(4, 2, 1, 1, 1);
+            gs.getPlayers().clear();
+            assertThrows(NoSuchElementException.class, gs::getCurrentPlayer);
+        }
+
+        @Test
+        @DisplayName("Forward direction")
+        void getCurrentPlayerForward() {
+            GameState gs = GameState.startGame(4, 2, 1, 1, 1);
+            assertEquals("Player 1", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 2", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 3", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 4", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 1", gs.getCurrentPlayer());
+        }
+
+        @Test
+        @DisplayName("Reverse direction")
+        void getCurrentPlayerReverse() {
+            GameState gs = GameState.startGame(4, 2, 1, 1, 1);
+            assertEquals("Player 1", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 4", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 3", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 2", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 1", gs.getCurrentPlayer());
+        }
+
+        @Test
+        @DisplayName("Both directions")
+        void getCurrentPlayerBoth() {
+            GameState gs = GameState.startGame(4, 2, 1, 1, 1);
+            assertEquals("Player 1", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 2", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 1", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 2", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 1", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 4", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 3", gs.getCurrentPlayer());
+            gs.initiateReverseDirection();
+            assertEquals("Player 2", gs.getCurrentPlayer());
+            gs.initiateForwardDirection();
+            assertEquals("Player 3", gs.getCurrentPlayer());
+        }
+    }
+
     @Test
-    public void runOneTurn() {
+    @DisplayName("GameState: main")
+    void mainTest() {
+        assertDoesNotThrow(() -> GameState.main(new String[]{}));
     }
 }

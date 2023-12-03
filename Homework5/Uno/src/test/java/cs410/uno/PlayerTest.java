@@ -75,5 +75,10 @@ class PlayerTest {
     void hasEmptyHand() {
         Player me = new Player("Brendan");
         assertTrue(me.hasEmptyHand());
+        Card c = new NormalCard(1, "Red");
+        me.addToHand(c);
+        assertFalse(me.hasEmptyHand());
+        me.playCard(c);
+        assertTrue(me.hasEmptyHand());
     }
 }

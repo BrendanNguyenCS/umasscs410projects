@@ -20,4 +20,12 @@ public class NormalCard extends Card {
             throw new IllegalArgumentException("Invalid values detected");
         }
     }
+
+    /**
+     * @return the string representation of this normal card
+     */
+    @Override
+    public String toString() {
+        return getColor() + " " + getValue();
+    }
 }

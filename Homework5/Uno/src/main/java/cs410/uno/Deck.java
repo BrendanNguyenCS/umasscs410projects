@@ -106,7 +106,7 @@ public class Deck {
      * @param c the card to be added
      */
     public void addToDeck(Card c) {
-        deck.add(c);
+        deck.addFirst(c);
     }
 
     /**
@@ -114,7 +114,7 @@ public class Deck {
      * @param d the deck to add
      */
     public void addToDeck(Deck d) {
-        deck.addAll(d.deck);
+        deck.addAll(0, d.deck);
     }
 
     /**
@@ -122,7 +122,7 @@ public class Deck {
      * @return the drawn card
      */
     public Card drawFromDeck() {
-        return deck.remove();
+        return deck.removeFirst();
     }
 
     /**
@@ -137,12 +137,5 @@ public class Deck {
      */
     public Card getTopCard() {
         return deck.peekFirst();
-    }
-
-    /**
-     * Checks if decks are equal
-     */
-    public Card removeTopCard() {
-        return deck.removeFirst();
     }
 }

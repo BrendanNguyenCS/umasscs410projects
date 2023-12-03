@@ -12,19 +12,19 @@ class SpecialCardTest {
         @Test
         @DisplayName("valid card and color values")
         void validCard() {
-            assertDoesNotThrow(() -> { new SpecialCard("Reverse", "Red"); });
+            assertDoesNotThrow(() -> new SpecialCard("Reverse", "Red"));
         }
 
         @Test
         @DisplayName("invalid card value")
         void invalidValue() {
-            assertThrows(IllegalArgumentException.class, () -> { new SpecialCard("Draw Four", "Red"); });
+            assertThrows(IllegalArgumentException.class, () -> new SpecialCard("Draw Four", "Red"));
         }
 
         @Test
         @DisplayName("invalid color value")
         void invalidColor() {
-            assertThrows(IllegalArgumentException.class, () -> { new SpecialCard("Skip", "Purple"); });
+            assertThrows(IllegalArgumentException.class, () -> new SpecialCard("Skip", "Purple"));
         }
     }
 
@@ -84,5 +84,18 @@ class SpecialCardTest {
             w.setEffectiveColor("Green");
             assertFalse(yellowDrawTwo.isPlayable(w));
         }
+    }
+
+    @Test
+    @DisplayName("Special Card: toString")
+    void toStringTest() {
+        SpecialCard yellowDrawTwo = new SpecialCard("Draw Two", "Yellow");
+        assertEquals("Yellow Draw Two", yellowDrawTwo.toString());
+
+        SpecialCard redSkip = new SpecialCard("Skip", "Red");
+        assertEquals("Red Skip", redSkip.toString());
+
+        SpecialCard blueReverse = new SpecialCard("Reverse", "Blue");
+        assertEquals("Blue Reverse", blueReverse.toString());
     }
 }

@@ -38,12 +38,12 @@ public class GameState {
     private final LinkedList<Player> players;
 
     /**
-     * Represents the beginning of a Uno game
+     * Represents the beginning of a {@link cs410.uno Uno} game
      * @param countPlayers the number of players
      * @param countInitialCardsPerPlayer the number of cards initially dealt to each player
-     * @param countDigitCardsPerColor the number of normal cards for each digit and color
-     * @param countSpecialCardsPerColor the number of special cards of each kind for each color
-     * @param countWildCards the number of total wild cards
+     * @param countDigitCardsPerColor the number of {@link NormalCard normal} cards for each digit and color
+     * @param countSpecialCardsPerColor the number of {@link SpecialCard special} cards of each kind for each color
+     * @param countWildCards the number of total {@link WildCard wild} cards
      */
     private GameState(int countPlayers,
                      int countInitialCardsPerPlayer,
@@ -73,8 +73,9 @@ public class GameState {
     }
 
     /**
-     * After the startGame method ends, the game state should represent the
+     * After this method ends, the game state should represent the
      * situation immediately before the first player takes their first turn.
+     * <p>
      * That is, the players should be arranged, their initial hands have been dealt,
      * and the discard pile and draw pile have been created.
      */
@@ -96,6 +97,17 @@ public class GameState {
     }
 
     /**
+     * @return the name of the current player
+     */
+    String getCurrentPlayer() {
+        Player p = players.peekFirst();
+        if (p == null) {
+            throw new NoSuchElementException("No players found");
+        }
+        return p.getName();
+    }
+
+    /**
      * Indicates whether the game is over.
      */
     boolean isGameOver() {
@@ -109,18 +121,20 @@ public class GameState {
 
     /**
      * Shifts the players in the forward direction
+     * <p>
+     * If the current order is {@code 1 > 2 > 3 > 4}, then the new order will be {@code 2 > 3 > 4 > 1}
      */
     void initiateForwardDirection() {
-        // 1 > 2 > 3 > 4 -> 2 > 3 > 4 > 1
         Player p = players.removeFirst();
         players.addLast(p);
     }
 
     /**
      * Shifts the players in the reverse direction
+     * <p>
+     * If the current order is {@code 1 > 2 > 3 > 4}, then the new order will be {@code 4 > 1 > 2 > 3}
      */
     void initiateReverseDirection() {
-        // 1 > 2 > 3 > 4 -> 4 > 1 > 2 > 3
         Player l = players.removeLast();
         players.addFirst(l);
     }
@@ -141,14 +155,14 @@ public class GameState {
      * Checks if the draw pile is empty, and if so, adds the discard pile to it
      */
     void checkDecks() {
-        // if draw pile is empty, add discard pile to
+        // if draw pile is empty, add discard pile to it and shuffle
         if (draw.isDeckEmpty()) {
             // save the current top card from discard pile
             Card c = discard.drawFromDeck();
-            // add discard pile to draw pile and shuffle
+
             draw.addToDeck(discard);
             draw.shuffleDeck();
-            // clear the discard pile and add the saved card
+
             discard.clearDeck();
             discard.addToDeck(c);
         }
@@ -199,7 +213,7 @@ public class GameState {
                             drawTwoToNextPlayer();
                             break;
                         case "Reverse":
-                            direction = false;
+                            direction = !direction;
                             break;
                         case "Skip":
                             // check for direction and shift
@@ -220,5 +234,15 @@ public class GameState {
                     break;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        GameState g = GameState.startGame(2, 7, 2, 2, 4);
+        while (!g.isGameOver()) {
+            System.out.println(g.getCurrentPlayer() + "'s turn");
+            System.out.println("The last played card is " + g.getDiscard().getTopCard());
+            g.runOneTurn();
+        }
+        System.out.println("Game over!");
     }
 }

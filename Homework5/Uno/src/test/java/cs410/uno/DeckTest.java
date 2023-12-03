@@ -106,13 +106,4 @@ class DeckTest {
         d.addToDeck(c);
         assertEquals(c, d.getTopCard());
     }
-
-    @Test
-    @DisplayName("Deck: remove top card")
-    void removeTopCard() {
-        Deck d = new Deck();
-        Card c = new NormalCard(6, "Red");
-        d.addToDeck(c);
-        assertEquals(c, d.removeTopCard());
-    }
 }

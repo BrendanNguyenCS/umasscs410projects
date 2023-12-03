@@ -1,19 +1,28 @@
 package cs410.uno;
 
+import lombok.*;
+
 import java.util.*;
 
 /**
  * Represents a card in the Uno game.
  */
+@Getter
 public abstract class Card {
 
+    /**
+     * The list of possible colors for Uno cards. The last element is "None" which is used for wild cards.
+     */
     public static final String[] colors = {"Red", "Yellow", "Green", "Blue", "None"};
+    /**
+     * The list of possible types for Uno cards.
+     */
     public static final String[] types = {"Normal", "Special", "Wild"};
 
     /**
      * The card type of this Card. There are 3 types of Uno cards: "Normal", "Special", and "Wild".
      */
-    private String type;
+    private final String type;
 
     /**
      * The value of this Card. The possible value of the card is determined by its type.
@@ -23,6 +32,7 @@ public abstract class Card {
      *     <li>Wild cards have a value of "Wild"</li>
      * </ul>
      */
+    @Setter
     private String value;
 
     /**
@@ -32,17 +42,14 @@ public abstract class Card {
     private String color;
 
     /**
-     * Constructor
-     * @param type the card's type
+     * Constructors
      */
     public Card(String type) {
         this(type, "", "");
     }
-
     public Card(String type, String color) {
         this(type, "", color);
     }
-
     public Card(String type, String value, String color) {
         if (Arrays.asList(types).contains(type) && Arrays.asList(colors).contains(color)) {
             this.type = type;
@@ -53,12 +60,11 @@ public abstract class Card {
         }
     }
 
-    // Getters and setters
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
-    public String getValue() { return value; }
-    public void setValue(String value) { this.value = value; }
-    public String getColor() { return color; }
+    /**
+     * Sets the color of the card. This method is only used for wild cards.
+     * @param color the color to set
+     * @throws IllegalArgumentException if the color is not one of the 4 colors
+     */
     public void setColor(String color) throws IllegalArgumentException {
         if (Arrays.asList(colors).contains(color)) {
             this.color = color;
@@ -80,4 +86,6 @@ public abstract class Card {
         // All wild cards are playable
         return true;
     }
+
+    public String toString;
 }

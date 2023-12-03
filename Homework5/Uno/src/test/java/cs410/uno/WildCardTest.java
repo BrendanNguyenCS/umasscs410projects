@@ -16,14 +16,14 @@ class WildCardTest {
         @DisplayName("set invalid color")
         void invalidColor() {
             WildCard w = new WildCard();
-            assertThrows(IllegalArgumentException.class, () -> { w.setEffectiveColor("Purple"); });
+            assertThrows(IllegalArgumentException.class, () -> w.setEffectiveColor("Purple"));
         }
 
         @Test
         @DisplayName("set valid color")
         void validColor() {
             WildCard w = new WildCard();
-            assertDoesNotThrow(() -> { w.setEffectiveColor("Blue"); });
+            assertDoesNotThrow(() -> w.setEffectiveColor("Blue"));
         }
 
         @Test
@@ -31,7 +31,7 @@ class WildCardTest {
         void validColorWithExistingColor() {
             WildCard w = new WildCard();
             w.setEffectiveColor("Blue");
-            assertDoesNotThrow(() -> { w.setEffectiveColor("Red"); });
+            assertDoesNotThrow(() -> w.setEffectiveColor("Red"));
         }
 
         @Test
@@ -39,7 +39,7 @@ class WildCardTest {
         void invalidColorWithExistingColor() {
             WildCard w = new WildCard();
             w.setEffectiveColor("Blue");
-            assertThrows(IllegalArgumentException.class, () -> { w.setEffectiveColor("Purple"); });
+            assertThrows(IllegalArgumentException.class, () -> w.setEffectiveColor("Purple"));
         }
     }
 

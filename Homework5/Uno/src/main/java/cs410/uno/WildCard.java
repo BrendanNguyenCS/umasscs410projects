@@ -33,4 +33,12 @@ public class WildCard extends Card {
         int i = r.nextInt(colors.length - 1);
         setEffectiveColor(colors[i]);
     }
+
+    /**
+     * @return a string representation of this wild card
+     */
+    @Override
+    public String toString() {
+        return "Wild " + getColor();
+    }
 }

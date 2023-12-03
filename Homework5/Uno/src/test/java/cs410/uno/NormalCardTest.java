@@ -12,19 +12,25 @@ class NormalCardTest {
         @Test
         @DisplayName("valid card and color values")
         void validCard() {
-            assertDoesNotThrow(() -> { new NormalCard(9, "Red"); });
+            assertDoesNotThrow(() -> new NormalCard(9, "Red"));
         }
 
         @Test
-        @DisplayName("invalid card value")
-        void invalidValue() {
-            assertThrows(IllegalArgumentException.class, () -> { new NormalCard(10, "Red"); });
+        @DisplayName("invalid card value, greater than 9")
+        void invalidValue1() {
+            assertThrows(IllegalArgumentException.class, () -> new NormalCard(10, "Red"));
+        }
+
+        @Test
+        @DisplayName("invalid card value, less than 0")
+        void invalidValue2() {
+            assertThrows(IllegalArgumentException.class, () -> new NormalCard(-1, "Red"));
         }
 
         @Test
         @DisplayName("invalid color value")
         void invalidColor() {
-            assertThrows(IllegalArgumentException.class, () -> { new NormalCard(8, "Purple"); });
+            assertThrows(IllegalArgumentException.class, () -> new NormalCard(8, "Purple"));
         }
     }
 
@@ -84,5 +90,21 @@ class NormalCardTest {
             w.setEffectiveColor("Green");
             assertFalse(red5.isPlayable(w));
         }
+    }
+
+    @Test
+    @DisplayName("NormalCard: toString")
+    void toStringTest() {
+        NormalCard red5 = new NormalCard(5, "Red");
+        assertEquals("Red 5", red5.toString());
+
+        NormalCard blue0 = new NormalCard(0, "Blue");
+        assertEquals("Blue 0", blue0.toString());
+
+        NormalCard yellow9 = new NormalCard(9, "Yellow");
+        assertEquals("Yellow 9", yellow9.toString());
+
+        NormalCard green1 = new NormalCard(1, "Green");
+        assertEquals("Green 1", green1.toString());
     }
 }
