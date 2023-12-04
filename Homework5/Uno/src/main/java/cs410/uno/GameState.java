@@ -237,7 +237,7 @@ public class GameState {
     }
 
     public static void main(String[] args) {
-        GameState g = GameState.startGame(2, 7, 2, 2, 4);
+        GameState g = GameState.startGame(4, 7, 2, 2, 4);
         while (!g.isGameOver()) {
             System.out.println(g.getCurrentPlayer() + "'s turn");
             System.out.println("The last played card is " + g.getDiscard().getTopCard());
