@@ -146,6 +146,7 @@ public class GameState {
         Player n = players.peekFirst();
         if (n != null) {
             for (int i = 0; i < 2; i++) {
+                checkDecks();
                 n.addToHand(draw.drawFromDeck());
             }
         }

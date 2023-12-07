@@ -87,5 +87,24 @@ public abstract class Card {
         return true;
     }
 
+    /**
+     * Determines if this card is equal to another card. Two cards are equal if they have the same color, type, and value.
+     * @param o the object to compare
+     * @return {@code true} if the cards are equal, {@code false} otherwise
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o instanceof Card c) {
+            return color.equals(c.color) && type.equals(c.type) && value.equals(c.value);
+        }
+        return false;
+    }
+
+    /**
+     * Returns a string representation of this card.
+     */
     public String toString;
 }
