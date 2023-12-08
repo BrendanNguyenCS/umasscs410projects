@@ -37,6 +37,8 @@ public class GameState {
      */
     private final LinkedList<Player> players;
 
+    private int countRefillDeck = 0;
+
     /**
      * Represents the beginning of a {@link cs410.uno Uno} game
      * @param countPlayers the number of players
@@ -69,6 +71,12 @@ public class GameState {
 
         // the top card in the draw pile is moved to the discard pile to begin the game
         Card top = draw.drawFromDeck();
+
+        // check if the top card is a wild card
+        if (top instanceof WildCard w) {
+            w.setRandomEffectiveColor();
+        }
+
         discard.addToDeck(top);
     }
 
@@ -99,12 +107,12 @@ public class GameState {
     /**
      * @return the name of the current player
      */
-    String getCurrentPlayer() {
+    Player getCurrentPlayer() {
         Player p = players.peekFirst();
         if (p == null) {
             throw new NoSuchElementException("No players found");
         }
-        return p.getName();
+        return p;
     }
 
     /**
@@ -166,6 +174,19 @@ public class GameState {
 
             discard.clearDeck();
             discard.addToDeck(c);
+
+            countRefillDeck++;
+        }
+    }
+
+    /**
+     * Moves the game in the current direction
+     */
+    void moveInDirection() {
+        if (direction) {
+            initiateForwardDirection();
+        } else {
+            initiateReverseDirection();
         }
     }
 
@@ -186,18 +207,10 @@ public class GameState {
             // get previously played card from discard pile
             Card lastPlayed = discard.getTopCard();
 
-            // check for direction and shift
-            if (direction) {
-                initiateForwardDirection();
-            } else {
-                initiateReverseDirection();
-            }
-
-            checkDecks();
-
             Card next = p.playCard(lastPlayed);
             // check if the player has any playable cards
             while (next == null) {
+                checkDecks();
                 p.addToHand(draw.drawFromDeck());
                 next = p.playCard(lastPlayed);
             }
@@ -212,38 +225,53 @@ public class GameState {
                         case "Draw Two":
                             checkDecks();
                             drawTwoToNextPlayer();
+                            moveInDirection();
                             break;
                         case "Reverse":
-                            direction = !direction;
-                            break;
-                        case "Skip":
-                            // check for direction and shift
                             if (direction) {
-                                initiateForwardDirection();
-                            } else {
                                 initiateReverseDirection();
+                            } else {
+                                initiateForwardDirection();
                             }
+                            direction = !direction;
+                            System.out.println("\tThey have played " + next);
+                            discard.addToDeck(s);
+                            return;
+                        case "Skip":
+                            moveInDirection();
                             break;
                     }
                     discard.addToDeck(s);
-                    return;
+                    break;
                 case WildCard w:
                     w.setRandomEffectiveColor();
                     discard.addToDeck(w);
-                    return;
+                    break;
                 default:
                     break;
             }
+
+            moveInDirection();
+            System.out.println("\tThey have played " + next);
         }
     }
 
     public static void main(String[] args) {
+        int turnCount = 0;
         GameState g = GameState.startGame(4, 7, 2, 2, 4);
+        Player p = null;
         while (!g.isGameOver()) {
-            System.out.println(g.getCurrentPlayer() + "'s turn");
-            System.out.println("The last played card is " + g.getDiscard().getTopCard());
+            System.out.println("--------------------");
+            //System.out.println("The last played card was " + g.getDiscard().getTopCard());
+            p = g.getCurrentPlayer();
+            System.out.println(p + "'s turn");
+            System.out.println("\tThey have " + p.getHand().size() + " cards");
             g.runOneTurn();
+            turnCount++;
         }
-        System.out.println("Game over!");
+        System.out.println("--------------------");
+        System.out.println("There have been " + turnCount + " turns");
+        System.out.println("The deck has been refilled " + g.countRefillDeck + " times");
+        System.out.println("Game over! " + p + " wins!");
     }
 }

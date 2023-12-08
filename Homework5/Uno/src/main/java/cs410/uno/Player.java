@@ -66,4 +66,12 @@ public class Player {
     public boolean hasEmptyHand() {
         return hand.isEmpty();
     }
+
+    /**
+     * @return a string representation of this player
+     */
+    @Override
+    public String toString() {
+        return name;
+    }
 }

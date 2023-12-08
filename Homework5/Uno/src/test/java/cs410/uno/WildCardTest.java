@@ -69,4 +69,24 @@ class WildCardTest {
             assertTrue(Set.of("Red", "Yellow", "Green", "Blue").contains(w.getColor()));
         }
     }
+
+    @Nested
+    @DisplayName("Wild Card: toString")
+    class toString {
+
+        @Test
+        @DisplayName("toString returns correct string")
+        void newWildCardString() {
+            WildCard w = new WildCard();
+            assertEquals("Wild set to None", w.toString());
+        }
+
+        @Test
+        @DisplayName("toString returns correct string")
+        void setWildCardString() {
+            WildCard w = new WildCard();
+            w.setEffectiveColor("Blue");
+            assertEquals("Wild set to Blue", w.toString());
+        }
+    }
 }

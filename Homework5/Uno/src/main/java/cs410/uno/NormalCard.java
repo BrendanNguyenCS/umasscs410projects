@@ -3,7 +3,7 @@ package cs410.uno;
 /**
  * Represents a normal card in the Uno game.
  * <p>
- * Class invariant: Card values must be between 0 and 9 inclusive.
+ * Class invariant: Card values must be between {@code 0} and {@code 9} inclusive.
  */
 public class NormalCard extends Card {
     /**

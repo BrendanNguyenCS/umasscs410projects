@@ -39,6 +39,6 @@ public class WildCard extends Card {
      */
     @Override
     public String toString() {
-        return "Wild " + getColor();
+        return "Wild set to " + getColor();
     }
 }

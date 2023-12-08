@@ -21,6 +21,13 @@ class PlayerTest {
         assertEquals("Brendan", me.getName());
     }
 
+    @Test
+    @DisplayName("Player: toString")
+    void toStringTest() {
+        Player me = new Player("Brendan");
+        assertEquals("Brendan", me.toString());
+    }
+
     @Nested
     @DisplayName("Player: play card")
     class playCard {

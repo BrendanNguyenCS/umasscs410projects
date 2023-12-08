@@ -206,53 +206,53 @@ public class GameStateTest {
         @DisplayName("Forward direction")
         void getCurrentPlayerForward() {
             GameState gs = GameState.startGame(4, 2, 1, 1, 1);
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 2", gs.getCurrentPlayer());
+            assertEquals("Player 2", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 3", gs.getCurrentPlayer());
+            assertEquals("Player 3", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 4", gs.getCurrentPlayer());
+            assertEquals("Player 4", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
         }
 
         @Test
         @DisplayName("Reverse direction")
         void getCurrentPlayerReverse() {
             GameState gs = GameState.startGame(4, 2, 1, 1, 1);
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 4", gs.getCurrentPlayer());
+            assertEquals("Player 4", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 3", gs.getCurrentPlayer());
+            assertEquals("Player 3", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 2", gs.getCurrentPlayer());
+            assertEquals("Player 2", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
         }
 
         @Test
         @DisplayName("Both directions")
         void getCurrentPlayerBoth() {
             GameState gs = GameState.startGame(4, 2, 1, 1, 1);
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 2", gs.getCurrentPlayer());
+            assertEquals("Player 2", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 2", gs.getCurrentPlayer());
+            assertEquals("Player 2", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 1", gs.getCurrentPlayer());
+            assertEquals("Player 1", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 4", gs.getCurrentPlayer());
+            assertEquals("Player 4", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 3", gs.getCurrentPlayer());
+            assertEquals("Player 3", gs.getCurrentPlayer().toString());
             gs.initiateReverseDirection();
-            assertEquals("Player 2", gs.getCurrentPlayer());
+            assertEquals("Player 2", gs.getCurrentPlayer().toString());
             gs.initiateForwardDirection();
-            assertEquals("Player 3", gs.getCurrentPlayer());
+            assertEquals("Player 3", gs.getCurrentPlayer().toString());
         }
     }
 
