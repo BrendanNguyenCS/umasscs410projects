@@ -1,0 +1,772 @@
+This is example output for the GameState main method.
+
+--------------------
+Player 1's turn
+	They have played Red 4
+	They now have 6 cards
+--------------------
+Player 2's turn
+	They have played Yellow 4
+	They now have 6 cards
+--------------------
+Player 3's turn
+	They have played Blue 4
+	They now have 6 cards
+--------------------
+Player 4's turn
+	They have played Blue 0
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Blue 3
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Red 3
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Yellow 3
+	They now have 5 cards
+--------------------
+Player 4's turn
+	They have played Yellow 6
+	They now have 5 cards
+--------------------
+Player 1's turn
+	They have played Yellow 2
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Yellow 8
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Yellow 1
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Yellow 7
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Yellow 4
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Wild set to Yellow
+	They now have 6 cards
+--------------------
+Player 3's turn
+	They have played Yellow 5
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Yellow Draw Two
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Blue Draw Two
+	They now have 11 cards
+--------------------
+Player 4's turn
+	They have played Blue 1
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Blue 6
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Blue 6
+	They now have 10 cards
+--------------------
+Player 3's turn
+	They have played Blue 8
+	They now have 4 cards
+--------------------
+Player 4's turn
+	Player 1 will be skipped
+	They have played Blue Skip
+	They now have 3 cards
+--------------------
+Player 2's turn
+	Player 3 will be skipped
+	They have played Green Skip
+	They now have 9 cards
+--------------------
+Player 4's turn
+	They have played Green 8
+	They now have 2 cards
+--------------------
+Player 1's turn
+	Player 2 will be skipped
+	They have played Green Skip
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Green 7
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Green 9
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Green 5
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Green 8
+	They now have 8 cards
+--------------------
+Player 3's turn
+	They have played Green 5
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Wild set to Red
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Red Draw Two
+	They now have 2 cards
+--------------------
+Player 3's turn
+	They have played Red 1
+	They now have 1 cards
+--------------------
+Player 4's turn
+	They have played Red Reverse
+	They now have 3 cards
+--------------------
+Player 3's turn
+	They have played Blue Reverse
+	They now have 1 cards
+--------------------
+Player 4's turn
+	They have played Blue 0
+	They now have 2 cards
+--------------------
+Player 1's turn
+	They have played Blue 1
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Green 1
+	They now have 9 cards
+--------------------
+Player 3's turn
+	They have played Wild set to Red
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Red 6
+	They now have 1 cards
+--------------------
+Player 1's turn
+	They have played Red 8
+	They now have 2 cards
+--------------------
+Player 2's turn
+	Player 3 will be skipped
+	They have played Red Skip
+	They now have 8 cards
+--------------------
+Player 4's turn
+	They have played Red 9
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Red 0
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Green 0
+	They now have 7 cards
+--------------------
+Player 3's turn
+	They have played Green 3
+	They now have 14 cards
+--------------------
+Player 4's turn
+	They have played Green 0
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Green 4
+	They now have 2 cards
+--------------------
+Player 2's turn
+	They have played Green 3
+	They now have 6 cards
+--------------------
+Player 3's turn
+	They have played Yellow 3
+	They now have 13 cards
+--------------------
+Player 4's turn
+	They have played Yellow 0
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Yellow 6
+	They now have 1 cards
+--------------------
+Player 2's turn
+	They have played Red 6
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Red Reverse
+	They now have 12 cards
+--------------------
+Player 2's turn
+	They have played Blue Reverse
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Blue 5
+	They now have 11 cards
+--------------------
+Player 4's turn
+	They have played Blue 7
+	They now have 2 cards
+--------------------
+Player 1's turn
+	They have played Blue 7
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Blue 9
+	They now have 3 cards
+--------------------
+Player 3's turn
+	They have played Blue 4
+	They now have 10 cards
+--------------------
+Player 4's turn
+	They have played Wild set to Blue
+	They now have 2 cards
+--------------------
+Player 1's turn
+	They have played Blue 8
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Red 8
+	They now have 2 cards
+--------------------
+Player 3's turn
+	They have played Yellow 8
+	They now have 9 cards
+--------------------
+Player 4's turn
+	They have played Yellow 9
+	They now have 1 cards
+--------------------
+Player 1's turn
+	They have played Yellow 5
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Yellow Reverse
+	They now have 2 cards
+--------------------
+Player 1's turn
+	Player 4 will be skipped
+	They have played Yellow Skip
+	They now have 7 cards
+--------------------
+Player 3's turn
+	They have played Yellow 9
+	They now have 8 cards
+--------------------
+Player 2's turn
+	Player 1 will be skipped
+	They have played Yellow Skip
+	They now have 6 cards
+--------------------
+Player 4's turn
+	Player 3 will be skipped
+	They have played Blue Skip
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Blue Draw Two
+	They now have 5 cards
+--------------------
+Player 4's turn
+	They have played Blue 2
+	They now have 2 cards
+--------------------
+Player 3's turn
+	They have played Yellow 2
+	They now have 7 cards
+--------------------
+Player 2's turn
+	They have played Yellow 0
+	They now have 7 cards
+--------------------
+Player 1's turn
+	They have played Yellow Reverse
+	They now have 11 cards
+--------------------
+Player 2's turn
+	They have played Green Reverse
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Green Draw Two
+	They now have 10 cards
+--------------------
+Player 3's turn
+	They have played Yellow Draw Two
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Red Draw Two
+	They now have 9 cards
+--------------------
+Player 3's turn
+	They have played Red 5
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Red 4
+	They now have 7 cards
+--------------------
+Player 1's turn
+	They have played Red 2
+	They now have 8 cards
+--------------------
+Player 4's turn
+	They have played Green 2
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Green 4
+	They now have 7 cards
+--------------------
+Player 2's turn
+	They have played Green 4
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Green 2
+	They now have 7 cards
+--------------------
+Player 4's turn
+	They have played Wild set to Blue
+	They now have 6 cards
+--------------------
+Player 3's turn
+	They have played Blue 9
+	They now have 6 cards
+--------------------
+Player 2's turn
+	They have played Blue 2
+	They now have 5 cards
+--------------------
+Player 1's turn
+	They have played Red 2
+	They now have 6 cards
+--------------------
+Player 4's turn
+	They have played Red 7
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Red 3
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Red 5
+	They now have 4 cards
+--------------------
+Player 1's turn
+	Player 4 will be skipped
+	They have played Red Skip
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Red 1
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Green 1
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Green Reverse
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Green Draw Two
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Yellow Draw Two
+	They now have 8 cards
+--------------------
+Player 2's turn
+	They have played Yellow 5
+	They now have 3 cards
+--------------------
+Player 3's turn
+	They have played Yellow 7
+	They now have 5 cards
+--------------------
+Player 4's turn
+	They have played Yellow 5
+	They now have 7 cards
+--------------------
+Player 1's turn
+	They have played Yellow 4
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Yellow 6
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Yellow 1
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Yellow 0
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Yellow 9
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Yellow 1
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Red 1
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Red 7
+	They now have 5 cards
+--------------------
+Player 1's turn
+	They have played Red 3
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Red 6
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Blue 6
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Blue 0
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Blue 8
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Blue 1
+	They now have 3 cards
+--------------------
+Player 3's turn
+	They have played Blue 3
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Blue 5
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Blue Draw Two
+	They now have 6 cards
+--------------------
+Player 3's turn
+	They have played Wild set to Red
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Red Reverse
+	They now have 2 cards
+--------------------
+Player 3's turn
+	They have played Yellow Reverse
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Yellow 8
+	They now have 1 cards
+--------------------
+Player 1's turn
+	They have played Green 8
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Green 6
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Green 0
+	They now have 2 cards
+--------------------
+Player 4's turn
+	Player 1 will be skipped
+	They have played Green Skip
+	They now have 1 cards
+--------------------
+Player 2's turn
+	Player 3 will be skipped
+	They have played Red Skip
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Red 0
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Red 9
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Red Reverse
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Yellow Reverse
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Yellow 2
+	They now have 2 cards
+--------------------
+Player 3's turn
+	They have played Wild set to Yellow
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Yellow 0
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Yellow 3
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Yellow 3
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Green 3
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Green 9
+	They now have 2 cards
+--------------------
+Player 1's turn
+	They have played Green 6
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Blue 6
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Blue 1
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Blue 4
+	They now have 1 cards
+--------------------
+Player 1's turn
+	They have played Blue 7
+	They now have 4 cards
+--------------------
+Player 2's turn
+	They have played Green 7
+	They now have 3 cards
+--------------------
+Player 3's turn
+	Player 4 will be skipped
+	They have played Green Skip
+	They now have 2 cards
+--------------------
+Player 1's turn
+	They have played Green 9
+	They now have 3 cards
+--------------------
+Player 2's turn
+	They have played Wild set to Yellow
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Yellow 7
+	They now have 2 cards
+--------------------
+Player 4's turn
+	They have played Green 7
+	They now have 5 cards
+--------------------
+Player 1's turn
+	They have played Green 5
+	They now have 2 cards
+--------------------
+Player 2's turn
+	They have played Green Reverse
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Green 0
+	They now have 8 cards
+--------------------
+Player 4's turn
+	They have played Green 5
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Green Draw Two
+	They now have 4 cards
+--------------------
+Player 1's turn
+	They have played Red Draw Two
+	They now have 7 cards
+--------------------
+Player 3's turn
+	They have played Blue Draw Two
+	They now have 3 cards
+--------------------
+Player 1's turn
+	They have played Blue 4
+	They now have 6 cards
+--------------------
+Player 4's turn
+	They have played Blue 5
+	They now have 5 cards
+--------------------
+Player 3's turn
+	Player 2 will be skipped
+	They have played Blue Skip
+	They now have 2 cards
+--------------------
+Player 1's turn
+	Player 4 will be skipped
+	They have played Blue Skip
+	They now have 5 cards
+--------------------
+Player 3's turn
+	They have played Blue 0
+	They now have 1 cards
+--------------------
+Player 2's turn
+	They have played Blue 7
+	They now have 7 cards
+--------------------
+Player 1's turn
+	They have played Blue 3
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Blue 2
+	They now have 4 cards
+--------------------
+Player 3's turn
+	They have played Blue Draw Two
+	They now have 11 cards
+--------------------
+Player 1's turn
+	They have played Blue 9
+	They now have 5 cards
+--------------------
+Player 4's turn
+	They have played Red 9
+	They now have 8 cards
+--------------------
+Player 3's turn
+	They have played Yellow 9
+	They now have 10 cards
+--------------------
+Player 2's turn
+	They have played Blue 9
+	They now have 8 cards
+--------------------
+Player 1's turn
+	They have played Red 9
+	They now have 4 cards
+--------------------
+Player 4's turn
+	They have played Red 6
+	They now have 7 cards
+--------------------
+Player 3's turn
+	They have played Red 4
+	They now have 9 cards
+--------------------
+Player 2's turn
+	They have played Red 5
+	They now have 9 cards
+--------------------
+Player 1's turn
+	They have played Red 8
+	They now have 3 cards
+--------------------
+Player 4's turn
+	They have played Red Reverse
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Red 0
+	They now have 2 cards
+--------------------
+Player 2's turn
+	They have played Red 1
+	They now have 12 cards
+--------------------
+Player 3's turn
+	They have played Yellow 1
+	They now have 8 cards
+--------------------
+Player 4's turn
+	Player 1 will be skipped
+	They have played Yellow Skip
+	They now have 5 cards
+--------------------
+Player 2's turn
+	They have played Yellow 6
+	They now have 11 cards
+--------------------
+Player 3's turn
+	They have played Yellow Draw Two
+	They now have 7 cards
+--------------------
+Player 1's turn
+	They have played Yellow 7
+	They now have 1 cards
+--------------------
+Player 2's turn
+	They have played Yellow 6
+	They now have 10 cards
+--------------------
+Player 3's turn
+	They have played Yellow 0
+	They now have 6 cards
+--------------------
+Player 4's turn
+	They have played Yellow 7
+	They now have 6 cards
+--------------------
+Player 1's turn
+	They have played Yellow 8
+	They now have 0 cards
+--------------------
+Game over! Player 1 wins!
+There have been 188 turns.
+The deck was refilled 2 times.

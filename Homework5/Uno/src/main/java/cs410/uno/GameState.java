@@ -224,8 +224,8 @@ public class GameState {
                     switch (s.getValue()) {
                         case "Draw Two":
                             checkDecks();
-                            drawTwoToNextPlayer();
                             moveInDirection();
+                            drawTwoToNextPlayer();
                             break;
                         case "Reverse":
                             if (direction) {
@@ -239,6 +239,8 @@ public class GameState {
                             return;
                         case "Skip":
                             moveInDirection();
+                            Player skipped = players.peekFirst();
+                            System.out.println("\t" + skipped + " will be skipped");
                             break;
                     }
                     discard.addToDeck(s);
@@ -265,13 +267,17 @@ public class GameState {
             //System.out.println("The last played card was " + g.getDiscard().getTopCard());
             p = g.getCurrentPlayer();
             System.out.println(p + "'s turn");
-            System.out.println("\tThey have " + p.getHand().size() + " cards");
             g.runOneTurn();
+            System.out.println("\tThey now have " + p.getHand().size() + " cards");
             turnCount++;
         }
         System.out.println("--------------------");
-        System.out.println("There have been " + turnCount + " turns");
-        System.out.println("The deck has been refilled " + g.countRefillDeck + " times");
         System.out.println("Game over! " + p + " wins!");
+        System.out.println("There have been " + turnCount + " turns.");
+        switch (g.countRefillDeck) {
+            case 0 -> System.out.println("The deck was never refilled.");
+            case 1 -> System.out.println("The deck was refilled once.");
+            default -> System.out.println("The deck was refilled " + g.countRefillDeck + " times.");
+        }
     }
 }
