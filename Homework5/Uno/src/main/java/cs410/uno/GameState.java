@@ -78,6 +78,7 @@ public class GameState {
         }
 
         discard.addToDeck(top);
+        System.out.println("The first card is " + top);
     }
 
     /**
@@ -264,7 +265,6 @@ public class GameState {
         Player p = null;
         while (!g.isGameOver()) {
             System.out.println("--------------------");
-            //System.out.println("The last played card was " + g.getDiscard().getTopCard());
             p = g.getCurrentPlayer();
             System.out.println(p + "'s turn");
             g.runOneTurn();
