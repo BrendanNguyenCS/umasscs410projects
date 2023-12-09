@@ -37,6 +37,9 @@ public class GameState {
      */
     private final LinkedList<Player> players;
 
+    /**
+     * The number of times the deck has been refilled
+     */
     private int countRefillDeck = 0;
 
     /**
@@ -151,7 +154,7 @@ public class GameState {
     /**
      * Draws two cards from the draw pile and adds them to the next player's hand
      */
-    void drawTwoToNextPlayer() {
+    Player drawTwoToNextPlayer() {
         Player n = players.peekFirst();
         if (n != null) {
             for (int i = 0; i < 2; i++) {
@@ -159,6 +162,7 @@ public class GameState {
                 n.addToHand(draw.drawFromDeck());
             }
         }
+        return n;
     }
 
     /**
@@ -220,13 +224,16 @@ public class GameState {
             switch (next) {
                 case NormalCard n:
                     discard.addToDeck(n);
+                    System.out.println("\tThey have played " + next);
                     break;
                 case SpecialCard s:
                     switch (s.getValue()) {
                         case "Draw Two":
+                            System.out.println("\tThey have played " + next);
                             checkDecks();
                             moveInDirection();
-                            drawTwoToNextPlayer();
+                            Player drawing = drawTwoToNextPlayer();
+                            System.out.println("\t" + drawing + " will draw two cards and be skipped");
                             break;
                         case "Reverse":
                             if (direction) {
@@ -239,6 +246,7 @@ public class GameState {
                             discard.addToDeck(s);
                             return;
                         case "Skip":
+                            System.out.println("\tThey have played " + next);
                             moveInDirection();
                             Player skipped = players.peekFirst();
                             System.out.println("\t" + skipped + " will be skipped");
@@ -249,17 +257,19 @@ public class GameState {
                 case WildCard w:
                     w.setRandomEffectiveColor();
                     discard.addToDeck(w);
+                    System.out.println("\tThey have played " + next);
                     break;
                 default:
                     break;
             }
 
             moveInDirection();
-            System.out.println("\tThey have played " + next);
         }
     }
 
     public static void main(String[] args) {
+        System.out.println("Starting game...");
+        System.out.println("--------------------");
         int turnCount = 0;
         GameState g = GameState.startGame(4, 7, 2, 2, 4);
         Player p = null;
@@ -268,7 +278,7 @@ public class GameState {
             p = g.getCurrentPlayer();
             System.out.println(p + "'s turn");
             g.runOneTurn();
-            System.out.println("\tThey now have " + p.getHand().size() + " cards");
+            System.out.println("\t" + p + " now has " + p.getHand().size() + " cards");
             turnCount++;
         }
         System.out.println("--------------------");
