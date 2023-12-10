@@ -224,16 +224,16 @@ public class GameState {
             switch (next) {
                 case NormalCard n:
                     discard.addToDeck(n);
-                    System.out.println("\tThey have played " + next);
+                    System.out.println("\tThey have played " + next + ".");
                     break;
                 case SpecialCard s:
                     switch (s.getValue()) {
                         case "Draw Two":
-                            System.out.println("\tThey have played " + next);
+                            System.out.println("\tThey have played " + next + ".");
                             checkDecks();
                             moveInDirection();
                             Player drawing = drawTwoToNextPlayer();
-                            System.out.println("\t" + drawing + " will draw two cards and be skipped");
+                            System.out.println("\t" + drawing + " will draw two cards and be skipped.");
                             break;
                         case "Reverse":
                             if (direction) {
@@ -242,14 +242,14 @@ public class GameState {
                                 initiateForwardDirection();
                             }
                             direction = !direction;
-                            System.out.println("\tThey have played " + next);
+                            System.out.println("\tThey have played " + next + ".");
                             discard.addToDeck(s);
                             return;
                         case "Skip":
-                            System.out.println("\tThey have played " + next);
+                            System.out.println("\tThey have played " + next + ".");
                             moveInDirection();
                             Player skipped = players.peekFirst();
-                            System.out.println("\t" + skipped + " will be skipped");
+                            System.out.println("\t" + skipped + " will be skipped.");
                             break;
                     }
                     discard.addToDeck(s);
@@ -257,7 +257,7 @@ public class GameState {
                 case WildCard w:
                     w.setRandomEffectiveColor();
                     discard.addToDeck(w);
-                    System.out.println("\tThey have played " + next);
+                    System.out.println("\tThey have played " + next + ".");
                     break;
                 default:
                     break;
@@ -278,15 +278,21 @@ public class GameState {
             p = g.getCurrentPlayer();
             System.out.println(p + "'s turn");
             g.runOneTurn();
-            System.out.println("\t" + p + " now has " + p.getHand().size() + " cards");
+            int handSize = p.getHand().size();
+            switch (handSize) {
+                case 1 -> System.out.println("\t" + p + " has UNO!");
+                case 0 -> System.out.println("\t" + p + " has won!");
+                default -> System.out.println("\t" + p + " has " + handSize + " cards.");
+            }
             turnCount++;
         }
         System.out.println("--------------------");
-        System.out.println("Game over! " + p + " wins!");
+        System.out.println("Game over!");
         System.out.println("There have been " + turnCount + " turns.");
         switch (g.countRefillDeck) {
             case 0 -> System.out.println("The deck was never refilled.");
             case 1 -> System.out.println("The deck was refilled once.");
+            case 2 -> System.out.println("The deck was refilled twice.");
             default -> System.out.println("The deck was refilled " + g.countRefillDeck + " times.");
         }
     }
