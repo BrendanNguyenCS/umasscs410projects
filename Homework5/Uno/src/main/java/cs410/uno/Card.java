@@ -44,14 +44,10 @@ public abstract class Card {
     /**
      * Constructors
      */
-    public Card(String type) {
-        this(type, "", "");
-    }
-    public Card(String type, String color) {
-        this(type, "", color);
-    }
     public Card(String type, String value, String color) {
-        if (Arrays.asList(types).contains(type) && Arrays.asList(colors).contains(color)) {
+        if (Arrays.asList(types).contains(type) &&
+            Arrays.asList(colors).contains(color) &&
+            !value.isEmpty()) {
             this.type = type;
             this.color = color;
             this.value = value;

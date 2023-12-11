@@ -21,12 +21,9 @@ public class SpecialCard extends Card {
      * @param color the card's (effective) color
      */
     public SpecialCard(String value, String color) {
-        super("Special", color);
-        if (Arrays.asList(values).contains(value)) {
-            super.setValue(value);
-        } else {
-            throw new IllegalArgumentException("Invalid values detected");
-        }
+        super("Special",
+              Arrays.asList(values).contains(value) ? value : "",
+              color);
     }
 
     /**

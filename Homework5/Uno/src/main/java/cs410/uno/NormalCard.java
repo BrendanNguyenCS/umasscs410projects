@@ -13,12 +13,9 @@ public class NormalCard extends Card {
      * @param color the card's (effective) color
      */
     public NormalCard(int value, String color) throws IllegalArgumentException {
-        super("Normal", color);
-        if (value >= 0 && value <= 9) {
-            this.setValue(String.valueOf(value));
-        } else {
-            throw new IllegalArgumentException("Invalid values detected");
-        }
+        super("Normal",
+              value >= 0 && value <= 9 ? String.valueOf(value) : "",
+              color);
     }
 
     /**
