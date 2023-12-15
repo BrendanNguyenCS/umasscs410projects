@@ -32,7 +32,7 @@ class SpecialCardTest {
     @DisplayName("Special Card: Playable")
     class PlayableTests {
 
-        SpecialCard yellowDrawTwo = new SpecialCard("Draw Two", "Yellow");
+        final SpecialCard yellowDrawTwo = new SpecialCard("Draw Two", "Yellow");
 
         @Test
         @DisplayName("Yellow Draw Two is playable on Yellow 7")
@@ -52,7 +52,7 @@ class SpecialCardTest {
         @DisplayName("Yellow Draw Two is playable on Wild with Yellow effective color")
         void playable3() {
             WildCard w = new WildCard();
-            w.setEffectiveColor("Yellow");;
+            w.setEffectiveColor("Yellow");
             assertTrue(yellowDrawTwo.isPlayable(w));
         }
 

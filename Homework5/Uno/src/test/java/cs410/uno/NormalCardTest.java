@@ -38,7 +38,7 @@ class NormalCardTest {
     @DisplayName("Normal Card: Playable")
     class PlayableTests {
 
-        NormalCard red5 = new NormalCard(5, "Red");
+        final NormalCard red5 = new NormalCard(5, "Red");
 
         @Test
         @DisplayName("Red 5 is playable on Red 6")

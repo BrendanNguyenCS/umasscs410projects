@@ -32,8 +32,7 @@ public abstract class Card {
      *     <li>Wild cards have a value of "Wild"</li>
      * </ul>
      */
-    @Setter
-    private String value;
+    private final String value;
 
     /**
      * The color of this card. Normal and special cards are colored red, yellow, green, or blue. Wild cards are colorless, but

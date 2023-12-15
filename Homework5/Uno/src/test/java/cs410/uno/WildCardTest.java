@@ -1,9 +1,7 @@
 package cs410.uno;
 
 import org.junit.jupiter.api.*;
-
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class WildCardTest {
@@ -53,7 +51,7 @@ class WildCardTest {
             WildCard w = new WildCard();
             w.setRandomEffectiveColor();
 
-            // We want to reset the color enough times that every color is chosen
+            // We want to reset the color enough times that every color should be chosen at least once
             // Ensures that the none option is not chosen
             for (int i = 0; i < 10; i++) {
                 assertNotEquals("None", w.getColor());
@@ -67,6 +65,38 @@ class WildCardTest {
             WildCard w = new WildCard();
             w.setRandomEffectiveColor();
             assertTrue(Set.of("Red", "Yellow", "Green", "Blue").contains(w.getColor()));
+        }
+    }
+
+    @Nested
+    @DisplayName("Wild Card: Playable")
+    class PlayableTests {
+
+        final WildCard w = new WildCard();
+
+        @Test
+        @DisplayName("Wild is playable on Red 6")
+        void playable1() {
+            w.setRandomEffectiveColor();
+            NormalCard red6 = new NormalCard(6, "Red");
+            assertTrue(w.isPlayable(red6));
+        }
+
+        @Test
+        @DisplayName("Wild is playable on Blue Skip")
+        void playable2() {
+            w.setRandomEffectiveColor();
+            SpecialCard blueSkip = new SpecialCard("Skip", "Blue");
+            assertTrue(w.isPlayable(blueSkip));
+        }
+
+        @Test
+        @DisplayName("Wild is playable on Wild with Red effective color")
+        void playable3() {
+            w.setRandomEffectiveColor();
+            WildCard w2 = new WildCard();
+            w2.setEffectiveColor("Red");
+            assertTrue(w.isPlayable(w2));
         }
     }
 

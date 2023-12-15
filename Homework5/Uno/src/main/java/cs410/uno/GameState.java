@@ -272,7 +272,7 @@ public class GameState {
         System.out.println("--------------------");
         int turnCount = 0;
         GameState g = GameState.startGame(4, 7, 2, 2, 4);
-        Player p = null;
+        Player p;
         while (!g.isGameOver()) {
             System.out.println("--------------------");
             p = g.getCurrentPlayer();
