@@ -20,22 +20,18 @@ public class GameState {
      * The Uno game's draw pile
      */
     private final Deck draw;
-
     /**
      * The Uno game's discard pile
      */
     private final Deck discard;
-
     /**
      * The direction
      */
     private boolean direction = true;
-
     /**
      * The players involved in the game
      */
     private final LinkedList<Player> players;
-
     /**
      * The number of times the deck has been refilled
      */
@@ -58,8 +54,9 @@ public class GameState {
         draw = new Deck(countDigitCardsPerColor, countSpecialCardsPerColor, countWildCards);
         discard = new Deck();
 
-        players = new LinkedList<>();
+
         // add new players
+        players = new LinkedList<>();
         for (int i = 0; i < countPlayers; i++) {
             players.add(new Player("Player " + (i + 1)));
         }
@@ -211,8 +208,8 @@ public class GameState {
             // get previously played card from discard pile
             Card lastPlayed = discard.getTopCard();
 
-            Card next = p.playCard(lastPlayed);
             // check if the player has any playable cards
+            Card next = p.playCard(lastPlayed);
             while (next == null) {
                 checkDecks();
                 // draw from the pile until they play a card
