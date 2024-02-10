@@ -15,7 +15,6 @@ import java.util.*;
  */
 @Getter
 public class Deck {
-
     /**
      * The card deck
      */

@@ -8,12 +8,10 @@ import java.util.*;
  */
 @Getter
 public class Player {
-
     /**
      * The player's current hand
      */
     private final List<Card> hand;
-
     /**
      * The player's name
      */

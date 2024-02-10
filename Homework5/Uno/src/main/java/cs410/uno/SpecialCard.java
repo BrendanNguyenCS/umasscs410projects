@@ -8,7 +8,6 @@ import java.util.Arrays;
  * Class invariant: Card values must be one of: <i>Skip</i>, <i>Reverse</i>, or <i>Draw Two</i>.
  */
 public class SpecialCard extends Card {
-
     /**
      * Possible values for a Uno special card
      */

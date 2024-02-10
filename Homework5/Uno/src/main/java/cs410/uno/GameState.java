@@ -16,7 +16,6 @@ import java.util.*;
  */
 @Getter
 public class GameState {
-
     /**
      * The Uno game's draw pile
      */
@@ -216,9 +215,24 @@ public class GameState {
             // check if the player has any playable cards
             while (next == null) {
                 checkDecks();
+                // draw from the pile until they play a card
                 p.addToHand(draw.drawFromDeck());
                 next = p.playCard(lastPlayed);
             }
+
+            /* Alternate rule: Players unable to play a card only draws once from the deck
+            if (next == null) {
+                checkDecks();
+                p.addToHand(draw.drawFromDeck());
+                if (next == null) {
+                    moveInDirection();
+                    return;
+                }
+                else {
+                    next = p.playCard(lastPlayed);
+                }
+            }
+            */
 
             // check type of the next card
             switch (next) {

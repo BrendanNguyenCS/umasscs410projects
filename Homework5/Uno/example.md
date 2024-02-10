@@ -1,5 +1,7 @@
 # Example of a game of UNO
 
+Notes: Please keep in mind that the current game rules dictate that a player unable to play a card must draw from the draw pile until they are able to play a card.
+
 **Starting game...**
 
 --------------------
